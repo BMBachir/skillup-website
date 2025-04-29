@@ -1,7 +1,5 @@
-import type React from "react";
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
-
 import { cn } from "@/lib/utils";
 import { MainNav } from "./components/main-nav";
 
@@ -26,15 +24,13 @@ export default function RootLayout({
           inter.className
         )}
       >
-        <div className="container">
+        <div className="container mx-auto ">
           <MainNav />
-          {children}
+          <main>{children}</main>
           <footer className="py-6 md:py-0 md:px-8 md:h-24 border-t flex flex-col md:flex-row items-center justify-between">
-            <div className="text-center md:text-left">
-              <p className="text-sm text-gray-500">
-                © 2025 FormationConnect. Tous droits réservés.
-              </p>
-            </div>
+            <p className="text-sm text-gray-500 text-center md:text-left">
+              © 2025 FormationConnect. Tous droits réservés.
+            </p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
               <a href="#" className="text-sm text-gray-500 hover:underline">
                 Mentions légales
