@@ -29,7 +29,9 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <Badge className="mb-2">Plateforme Innovante</Badge>
+                <Badge className="mb-2 bg-[#db9404]">
+                  Plateforme Innovante
+                </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
                   L'écosystème complet de la formation professionnelle
                 </h1>
@@ -41,7 +43,7 @@ export default function Home() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link
                     href="/services/formations"
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-700"
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-[#001282] px-8 text-sm font-medium text-white shadow transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-700"
                   >
                     Découvrir nos services
                     <ChevronRight className="ml-2 h-4 w-4" />
@@ -57,9 +59,11 @@ export default function Home() {
               <div className="mx-auto w-full max-w-[500px] lg:max-w-none">
                 <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-lg">
                   <Image
-                    src="/placeholder.svg?height=400&width=800"
+                    src="/images/heroimage.png"
                     alt="Plateforme de formation"
                     className="object-cover w-full h-full"
+                    width={500}
+                    height={400}
                   />
                 </div>
               </div>
@@ -72,7 +76,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div className="space-y-2">
-                <h3 className="text-3xl md:text-4xl font-bold text-blue-600">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#001282]">
                   500+
                 </h3>
                 <p className="text-sm md:text-base font-medium text-gray-500">
@@ -80,7 +84,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="space-y-2">
-                <h3 className="text-3xl md:text-4xl font-bold text-blue-600">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#001282]">
                   200+
                 </h3>
                 <p className="text-sm md:text-base font-medium text-gray-500">
@@ -88,7 +92,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="space-y-2">
-                <h3 className="text-3xl md:text-4xl font-bold text-blue-600">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#001282]">
                   1000+
                 </h3>
                 <p className="text-sm md:text-base font-medium text-gray-500">
@@ -96,7 +100,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="space-y-2">
-                <h3 className="text-3xl md:text-4xl font-bold text-blue-600">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#001282]">
                   5000+
                 </h3>
                 <p className="text-sm md:text-base font-medium text-gray-500">
@@ -112,7 +116,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2">Nos Services</Badge>
+                <Badge className="mb-2 bg-[#db9404]">Nos Services</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Une solution pour chaque besoin
                 </h2>
@@ -123,9 +127,9 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
-              <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-blue-600">
+              <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#001282]">
                 <div className="rounded-full bg-blue-100 p-4 mb-4">
-                  <BookOpen className="h-8 w-8 text-blue-600" />
+                  <BookOpen className="h-8 w-8 text-[#001282]" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Formations</h3>
                 <p className="text-gray-500 mb-4">
@@ -148,15 +152,15 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/services/formations"
-                  className="inline-flex items-center text-blue-600 hover:underline mt-auto"
+                  className="inline-flex items-center text-[#001282] hover:underline mt-auto"
                 >
                   Voir les formations
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
               </Card>
-              <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-blue-600">
+              <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#001282]">
                 <div className="rounded-full bg-blue-100 p-4 mb-4">
-                  <Users className="h-8 w-8 text-blue-600" />
+                  <Users className="h-8 w-8 text-[#001282]" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
                   Formateurs / Consultants
@@ -181,15 +185,15 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/services/formateurs"
-                  className="inline-flex items-center text-blue-600 hover:underline mt-auto"
+                  className="inline-flex items-center text-[#001282] hover:underline mt-auto"
                 >
                   Découvrir les experts
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
               </Card>
-              <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-blue-600">
+              <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#001282]">
                 <div className="rounded-full bg-blue-100 p-4 mb-4">
-                  <Award className="h-8 w-8 text-blue-600" />
+                  <Award className="h-8 w-8 text-[#001282]" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
                   Formations sur mesure
@@ -214,7 +218,7 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/services/sur-mesure"
-                  className="inline-flex items-center text-blue-600 hover:underline mt-auto"
+                  className="inline-flex items-center text-[#001282] hover:underline mt-auto"
                 >
                   Demander un devis
                   <ChevronRight className="ml-1 h-4 w-4" />
@@ -229,7 +233,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2">Comment ça marche</Badge>
+                <Badge className="mb-2 bg-[#db9404]">Comment ça marche</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Une plateforme adaptée à chaque profil
                 </h2>
@@ -274,7 +278,7 @@ export default function Home() {
                         </h3>
                         <div className="space-y-4">
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               1
                             </div>
                             <div>
@@ -288,7 +292,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               2
                             </div>
                             <div>
@@ -302,7 +306,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               3
                             </div>
                             <div>
@@ -316,7 +320,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               4
                             </div>
                             <div>
@@ -337,10 +341,12 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="rounded-lg overflow-hidden shadow-lg">
-                        <img
-                          src="/placeholder.svg?height=300&width=400&text=Entreprises"
+                        <Image
+                          src="/images/servicesImg01.png"
                           alt="Entreprises"
                           className="w-full h-full object-cover"
+                          width={400}
+                          height={500}
                         />
                       </div>
                     </div>
@@ -357,7 +363,7 @@ export default function Home() {
                         </h3>
                         <div className="space-y-4">
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               1
                             </div>
                             <div>
@@ -371,7 +377,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               2
                             </div>
                             <div>
@@ -385,7 +391,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               3
                             </div>
                             <div>
@@ -399,7 +405,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               4
                             </div>
                             <div>
@@ -420,10 +426,12 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="rounded-lg overflow-hidden shadow-lg">
-                        <img
-                          src="/placeholder.svg?height=300&width=400&text=Écoles"
-                          alt="Écoles de formation"
+                        <Image
+                          src="/images/servicesImg02.png"
+                          alt="Entreprises"
                           className="w-full h-full object-cover"
+                          width={400}
+                          height={500}
                         />
                       </div>
                     </div>
@@ -440,7 +448,7 @@ export default function Home() {
                         </h3>
                         <div className="space-y-4">
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               1
                             </div>
                             <div>
@@ -453,7 +461,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               2
                             </div>
                             <div>
@@ -466,7 +474,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               3
                             </div>
                             <div>
@@ -480,7 +488,7 @@ export default function Home() {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-[#001282] flex items-center justify-center font-bold flex-shrink-0">
                               4
                             </div>
                             <div>
@@ -501,10 +509,12 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="rounded-lg overflow-hidden shadow-lg">
-                        <img
-                          src="/placeholder.svg?height=300&width=400&text=Formateurs"
-                          alt="Formateurs et consultants"
+                        <Image
+                          src="/images/servicesImg03.png"
+                          alt="Entreprises"
                           className="w-full h-full object-cover"
+                          width={400}
+                          height={500}
                         />
                       </div>
                     </div>
@@ -520,7 +530,9 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2">Formations populaires</Badge>
+                <Badge className="mb-2 bg-[#db9404]">
+                  Formations populaires
+                </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Découvrez nos formations les mieux notées
                 </h2>
@@ -537,21 +549,21 @@ export default function Home() {
                   school: "École Numérique Paris",
                   rating: 4.9,
                   category: "Développement",
-                  image: "/placeholder.svg?height=200&width=300&text=Web",
+                  image: "/images/formationImg01.png",
                 },
                 {
                   title: "Data Science & IA",
                   school: "DataTech Academy",
                   rating: 4.8,
                   category: "Data",
-                  image: "/placeholder.svg?height=200&width=300&text=Data",
+                  image: "/images/formationImg02.png",
                 },
                 {
                   title: "Marketing Digital",
                   school: "Business School Lyon",
                   rating: 4.7,
                   category: "Marketing",
-                  image: "/placeholder.svg?height=200&width=300&text=Marketing",
+                  image: "/images/formationImg03.png",
                 },
               ].map((formation, index) => (
                 <Card key={index} className="overflow-hidden">
@@ -563,7 +575,9 @@ export default function Home() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <Badge className="mb-2">{formation.category}</Badge>
+                    <Badge className="mb-2 bg-[#db9404]">
+                      {formation.category}
+                    </Badge>
                     <h3 className="text-xl font-bold mb-2">
                       {formation.title}
                     </h3>
@@ -613,7 +627,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2">Témoignages</Badge>
+                <Badge className="mb-2 bg-[#db9404]">Témoignages</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Ils nous font confiance
                 </h2>
@@ -628,32 +642,34 @@ export default function Home() {
                 {
                   name: "Marie Dupont",
                   role: "DRH, Entreprise Tech",
-                  image: "/placeholder.svg?height=100&width=100&text=MD",
+                  image: "/images/profile01.png",
                   quote:
                     "FormationConnect nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
                 },
                 {
                   name: "Jean Martin",
                   role: "Directeur, École de Formation",
-                  image: "/placeholder.svg?height=100&width=100&text=JM",
+                  image: "/images/profile02.png",
                   quote:
                     "Grâce à la plateforme, nous avons pu augmenter notre visibilité et le nombre d'inscriptions à nos formations a considérablement augmenté.",
                 },
                 {
                   name: "Sophie Lefebvre",
                   role: "Formatrice indépendante",
-                  image: "/placeholder.svg?height=100&width=100&text=SL",
+                  image: "/images/profile03.png",
                   quote:
                     "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à FormationConnect.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">
                   <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-full overflow-hidden mb-4">
-                      <img
+                    <div className="w-15 h-15 rounded-full  overflow-hidden mb-4">
+                      <Image
                         src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
                         className="object-cover w-full h-full"
+                        height={35}
+                        width={35}
                       />
                     </div>
                     <p className="italic text-gray-600 mb-4">
@@ -673,7 +689,9 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2">Questions fréquentes</Badge>
+                <Badge className="mb-2 bg-[#db9404]">
+                  Questions fréquentes
+                </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Besoin d'aide ?
                 </h2>
@@ -734,8 +752,8 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-600 text-white">
-          <div className="container px-4 md:px-6">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#001282] text-white">
+          <div className=" w-full px-4 md:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
@@ -747,26 +765,19 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/auth/register">
-                    <Button className="bg-white text-blue-600 hover:bg-blue-50">
+                    <Button className="bg-white text-[#001282] hover:bg-blue-50">
                       S'inscrire gratuitement
                     </Button>
                   </Link>
                   <Link href="/pricing">
                     <Button
                       variant="outline"
-                      className="border-white text-white hover:bg-blue-700"
+                      className="border-white text-[#001282] hover:text-white hover:bg-[#001282] transition-all duration-500 ease-in-out"
                     >
                       Découvrir nos offres
                     </Button>
                   </Link>
                 </div>
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-xl">
-                <img
-                  src="/placeholder.svg?height=400&width=600&text=Rejoignez-nous"
-                  alt="Rejoignez notre plateforme"
-                  className="w-full h-full object-cover"
-                />
               </div>
             </div>
           </div>
@@ -777,7 +788,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2">Contact</Badge>
+                <Badge className="mb-2 bg-[#db9404]">Contact</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Contactez-nous
                 </h2>
@@ -789,7 +800,7 @@ export default function Home() {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12">
               <Card className="flex flex-col items-center space-y-4 p-6 shadow-md hover:shadow-lg transition-shadow">
-                <Phone className="h-10 w-10 text-blue-600" />
+                <Phone className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Téléphone</h3>
                 <p className="text-center text-gray-500">+33 1 23 45 67 89</p>
                 <p className="text-center text-gray-500">
@@ -797,7 +808,7 @@ export default function Home() {
                 </p>
               </Card>
               <Card className="flex flex-col items-center space-y-4 p-6 shadow-md hover:shadow-lg transition-shadow">
-                <Mail className="h-10 w-10 text-blue-600" />
+                <Mail className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Email</h3>
                 <p className="text-center text-gray-500">
                   contact@formation-platform.fr
@@ -807,7 +818,7 @@ export default function Home() {
                 </p>
               </Card>
               <Card className="flex flex-col items-center space-y-4 p-6 shadow-md hover:shadow-lg transition-shadow">
-                <MapPin className="h-10 w-10 text-blue-600" />
+                <MapPin className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Adresse</h3>
                 <p className="text-center text-gray-500">
                   123 Avenue de la Formation
