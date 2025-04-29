@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,16 +10,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 export default function PricingPage() {
   const packs = [
     {
-      id: "basic",
-      name: "Essentiel",
+      id: "Freemium",
+      name: "Freemium",
       description: "Pour les petites entreprises et les indépendants",
-      price: "49",
+      price: "0",
       features: [
-        "Accès à 10 formations complètes",
+        "Accès à site web complètes",
         "Consultation de 5 profils de formateurs",
         "1 demande de formation sur mesure",
         "Support par email",
@@ -27,10 +29,10 @@ export default function PricingPage() {
       popular: false,
     },
     {
-      id: "pro",
-      name: "Professionnel",
+      id: "Premium",
+      name: " Premium",
       description: "Pour les entreprises en croissance",
-      price: "99",
+      price: "1499",
       features: [
         "Accès à 50 formations complètes",
         "Consultation de 20 profils de formateurs",
@@ -42,10 +44,10 @@ export default function PricingPage() {
       popular: true,
     },
     {
-      id: "enterprise",
-      name: "Entreprise",
+      id: "Professionnel",
+      name: "Professionnel",
       description: "Pour les grandes organisations",
-      price: "249",
+      price: "2499",
       features: [
         "Accès illimité aux formations",
         "Consultation illimitée des profils",
@@ -58,6 +60,20 @@ export default function PricingPage() {
       popular: false,
     },
   ];
+  const router = useRouter();
+  const handlePackSelection = (selectedPackId: string) => {
+    console.log("Selected pack:", selectedPackId);
+
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      parsedData.payment = selectedPackId;
+      console.log("Before update:", parsedData);
+      localStorage.setItem("registeredUser", JSON.stringify(parsedData));
+      toast.success("Offre sélectionnée avec succès !");
+      router.push("/");
+    }
+  };
 
   return (
     <div className="container py-10">
@@ -74,11 +90,11 @@ export default function PricingPage() {
           <Card
             key={pack.id}
             className={`flex flex-col ${
-              pack.popular ? "border-blue-600 shadow-lg" : ""
+              pack.popular ? "border-[#001282] shadow-lg" : ""
             }`}
           >
             {pack.popular && (
-              <div className="bg-blue-600 text-white text-center py-1 text-sm font-medium">
+              <div className="bg-[#001282] text-white text-center py-1 text-sm font-medium">
                 Recommandé
               </div>
             )}
@@ -88,7 +104,7 @@ export default function PricingPage() {
             </CardHeader>
             <CardContent className="flex-1">
               <div className="mb-6">
-                <span className="text-4xl font-bold">{pack.price}€</span>
+                <span className="text-4xl font-bold">{pack.price} DZ</span>
                 <span className="text-gray-500 ml-1">/mois</span>
               </div>
               <ul className="space-y-3">
@@ -102,8 +118,9 @@ export default function PricingPage() {
             </CardContent>
             <CardFooter>
               <Button
+                onClick={() => handlePackSelection(pack.id)}
                 className={`w-full ${
-                  pack.popular ? "bg-blue-600 hover:bg-blue-700" : ""
+                  pack.popular ? "bg-[#001282] hover:bg-blue-700" : ""
                 }`}
                 variant={pack.popular ? "default" : "outline"}
               >

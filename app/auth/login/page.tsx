@@ -1,17 +1,64 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [registeredUser, setRegisteredUser] = useState<any>(null);
+
+  useEffect(() => {
+    const user = localStorage.getItem("registeredUser");
+    if (user) {
+      setRegisteredUser(JSON.parse(user));
+    }
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (
+      registeredUser &&
+      formData.email === registeredUser.email &&
+      formData.password === registeredUser.password
+    ) {
+      toast.success("Connexion réussie !");
+      switch (registeredUser.userType) {
+        case "entreprise":
+          router.push("/entreprise/dashboard");
+          break;
+        case "ecole":
+          router.push("/ecole/dashboard");
+          break;
+        case "formateur":
+          router.push("/formateur/dashboard");
+          break;
+        default:
+          toast.error("Type d'utilisateur inconnu");
+      }
+    } else {
+      toast.error("Email ou mot de passe incorrect");
+    }
+  };
+
   return (
     <div className="container py-10">
       <div className="max-w-md mx-auto space-y-6">
@@ -28,13 +75,15 @@ export default function LoginPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="votre.email@exemple.com"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -48,7 +97,13 @@ export default function LoginPage() {
                     Mot de passe oublié ?
                   </Link>
                 </div>
-                <Input id="password" type="password" required />
+                <Input
+                  id="password"
+                  type="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <Button type="submit" className="w-full">
                 Se connecter

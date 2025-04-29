@@ -72,7 +72,7 @@ export default function FormationsPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <CardTitle>{formation.title}</CardTitle>
-                  <CardDescription className="mt-1 blur-sm hover:blur-none transition-all">
+                  <CardDescription className="mt-1 blur-sm hover:blur-non transition-all">
                     {formation.school}
                   </CardDescription>
                 </div>

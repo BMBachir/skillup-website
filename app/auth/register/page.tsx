@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,9 +15,47 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Building2, GraduationCap, UserRound } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
   const [userType, setUserType] = useState("entreprise");
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    userType: "",
+    name: "",
+    email: "",
+    password: "",
+    address: "",
+    specialties: "",
+    license: "",
+    cv: "",
+    payment: "freemium",
+    logged: true,
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const savedUser = { ...formData };
+
+    localStorage.setItem("registeredUser", JSON.stringify(savedUser));
+    router.push("/pricing");
+  };
+
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      userType: userType,
+    }));
+  }, [userType]);
 
   return (
     <div className="container py-10">
@@ -92,33 +130,41 @@ export default function RegisterPage() {
 
           <CardContent className="pt-6">
             {userType === "entreprise" && (
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <Label htmlFor="company-name">Nom de l'entreprise</Label>
                   <Input
-                    id="company-name"
+                    name="name"
                     placeholder="Votre entreprise"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="company-email">Email professionnel</Label>
                   <Input
-                    id="company-email"
+                    name="email"
                     type="email"
                     placeholder="email@entreprise.com"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="company-password">Mot de passe</Label>
-                  <Input id="company-password" type="password" required />
+                  <Input
+                    name="password"
+                    type="password"
+                    required
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="company-address">Adresse</Label>
                   <Input
-                    id="company-address"
+                    name="address"
                     placeholder="Adresse de l'entreprise"
+                    onChange={handleChange}
                   />
                 </div>
                 <Button type="submit" className="w-full">
@@ -128,41 +174,50 @@ export default function RegisterPage() {
             )}
 
             {userType === "ecole" && (
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <Label htmlFor="school-name">Nom de l'établissement</Label>
                   <Input
-                    id="school-name"
+                    name="name"
                     placeholder="Nom de votre école"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="school-email">Email professionnel</Label>
                   <Input
-                    id="school-email"
+                    name="email"
                     type="email"
                     placeholder="email@ecole.com"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="school-password">Mot de passe</Label>
-                  <Input id="school-password" type="password" required />
+                  <Input
+                    name="password"
+                    type="password"
+                    required
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="school-specialties">Spécialités</Label>
                   <Input
-                    id="school-specialties"
+                    name="specialties"
                     placeholder="Ex: Informatique, Marketing, etc."
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="school-license">Numéro d'agrément</Label>
                   <Input
-                    id="school-license"
+                    name="license"
                     placeholder="Numéro d'agrément officiel"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <Button type="submit" className="w-full">
@@ -172,38 +227,50 @@ export default function RegisterPage() {
             )}
 
             {userType === "formateur" && (
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <Label htmlFor="trainer-name">Nom et prénom</Label>
                   <Input
-                    id="trainer-name"
+                    name="name"
                     placeholder="Votre nom complet"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="trainer-email">Email</Label>
                   <Input
-                    id="trainer-email"
+                    name="email"
                     type="email"
                     placeholder="votre.email@exemple.com"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="trainer-password">Mot de passe</Label>
-                  <Input id="trainer-password" type="password" required />
+                  <Input
+                    name="password"
+                    type="password"
+                    required
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="trainer-specialties">Spécialités</Label>
                   <Input
-                    id="trainer-specialties"
+                    name="specialties"
                     placeholder="Ex: Développement web, Marketing, etc."
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="trainer-cv">CV (lien ou fichier)</Label>
-                  <Input id="trainer-cv" placeholder="Lien vers votre CV" />
+                  <Input
+                    name="cv"
+                    placeholder="Lien vers votre CV"
+                    onChange={handleChange}
+                  />
                 </div>
                 <Button type="submit" className="w-full">
                   S'inscrire en tant que formateur

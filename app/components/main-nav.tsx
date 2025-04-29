@@ -12,102 +12,180 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export function MainNav() {
   const pathname = usePathname();
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <div className="flex justify-between items-center py-4">
-      <div className="flex items-center gap-6 md:gap-10">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/images/logo.png"
             alt="logo"
-            width={150}
-            height={150}
+            width={120}
+            height={120}
             priority
             quality={100}
-          ></Image>
+          />
         </Link>
+
+        {/* Desktop Nav */}
+
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Nos Services</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#001282] to-blue-800 p-6 no-underline outline-none focus:shadow-md"
+                        href="/services"
+                      >
+                        <div className="mt-4 mb-2 text-lg font-medium text-white">
+                          Nos Services
+                        </div>
+                        <p className="text-sm leading-tight text-white/90">
+                          Découvrez notre écosystème complet pour tous les
+                          acteurs de la formation professionnelle
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <Link href="/services/formations" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        Formations
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/formateurs" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        Formateurs / Consultants
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/sur-mesure" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        Formations sur mesure
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/about" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  À propos
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/contact" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Contact
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <div className="flex items-center gap-4">
+          <Link href="/auth/login">
+            <Button
+              variant="outline"
+              className="hidden md:flex cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
+            >
+              Connexion
+            </Button>
+          </Link>
+          <Link href="/auth/register">
+            <Button className="bg-[#db9404] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
+              Inscription
+            </Button>
+          </Link>
+        </div>
+
+        {/* Mobile Toggle Button */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Nos Services</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#001282] to-[#db9404] p-6 no-underline outline-none focus:shadow-md"
-                      href="/services"
-                    >
-                      <div className="mt-4 mb-2 text-lg font-medium text-white">
-                        Nos Services
-                      </div>
-                      <p className="text-sm leading-tight text-white/90">
-                        Découvrez notre écosystème complet pour tous les acteurs
-                        de la formation professionnelle
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <li>
-                  <Link href="/services/formations" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Formations
-                    </NavigationMenuLink>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/formateurs" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Formateurs / Consultants
-                    </NavigationMenuLink>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/sur-mesure" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Formations sur mesure
-                    </NavigationMenuLink>
-                  </Link>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/about" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                À propos
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/contact" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Contact
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-      <div className="flex items-center gap-4">
-        <Link href="/auth/login">
-          <Button variant="outline" className="hidden md:flex">
-            Connexion
-          </Button>
-        </Link>
-        <Link href="/auth/register">
-          <Button>Inscription</Button>
-        </Link>
-      </div>
-    </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t px-4 py-6 space-y-4 flex flex-col">
+          <Link
+            href="/services"
+            className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Nos Services
+          </Link>
+          <Link
+            className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900"
+            href="/services/formations"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Formations
+          </Link>
+          <Link
+            className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900 "
+            href="/services/formateurs"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Formateurs / Consultants
+          </Link>
+          <Link
+            className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900 "
+            href="/services/sur-mesure"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Formations sur mesure
+          </Link>
+          <Link
+            className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900 "
+            href="/about"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            À propos
+          </Link>
+          <Link
+            className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900 "
+            href="/contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+          <Link href="/auth/login" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button variant="outline" className="w-full p-4">
+              Connexion
+            </Button>
+          </Link>
+          <Link
+            href="/auth/register"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Button className="bg-[#db9404] w-full p-4">Inscription</Button>
+          </Link>
+        </div>
+      )}
+    </header>
   );
 }

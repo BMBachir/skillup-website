@@ -19,7 +19,40 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
+const faqs = [
+  {
+    question: "Comment fonctionne l'inscription sur la plateforme ?",
+    answer:
+      "L'inscription est simple et gratuite. Vous choisissez votre profil (entreprise, école ou formateur), remplissez le formulaire avec vos informations et vous pouvez commencer à utiliser la plateforme. Des options premium sont disponibles pour accéder à toutes les fonctionnalités.",
+  },
+  {
+    question: "Quels sont les différents abonnements disponibles ?",
+    answer:
+      "Nous proposons trois types d'abonnements : Essentiel, Professionnel et Entreprise. Chaque formule offre un niveau d'accès différent aux formations, profils de formateurs et fonctionnalités. Vous pouvez consulter notre page Tarifs pour plus de détails.",
+  },
+  {
+    question: "Comment sont sélectionnées les formations sur la plateforme ?",
+    answer:
+      "Toutes les formations sont proposées par des écoles et organismes vérifiés. Nous vérifions les agréments et certifications. Les formations sont ensuite évaluées par les utilisateurs pour garantir leur qualité.",
+  },
+  {
+    question: "Comment demander une formation sur mesure ?",
+    answer:
+      "Vous pouvez soumettre une demande de formation sur mesure via notre formulaire dédié. Décrivez vos besoins spécifiques et nous vous mettrons en relation avec les écoles et formateurs les plus adaptés à votre demande.",
+  },
+  {
+    question: "Comment devenir formateur sur la plateforme ?",
+    answer:
+      "Pour devenir formateur, inscrivez-vous avec le profil 'Formateur/Consultant', complétez votre profil avec vos compétences et expériences, téléchargez votre CV et choisissez votre abonnement. Votre profil sera ensuite visible par les entreprises et écoles de formation.",
+  },
+];
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -126,7 +159,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
               <Card className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#001282]">
                 <div className="rounded-full bg-blue-100 p-4 mb-4">
                   <BookOpen className="h-8 w-8 text-[#001282]" />
@@ -246,7 +279,7 @@ export default function Home() {
 
             <Tabs
               defaultValue="entreprise"
-              className="w-full max-w-4xl mx-auto"
+              className="w-full max-w-[1200px] mx-auto"
             >
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger
@@ -340,13 +373,13 @@ export default function Home() {
                           </Link>
                         </div>
                       </div>
-                      <div className="rounded-lg overflow-hidden shadow-lg">
+                      <div className="rounded-lg overflow-hidden shadow-lg h-[500px] ">
                         <Image
                           src="/images/servicesImg01.png"
                           alt="Entreprises"
                           className="w-full h-full object-cover"
                           width={400}
-                          height={500}
+                          height={400}
                         />
                       </div>
                     </div>
@@ -425,7 +458,7 @@ export default function Home() {
                           </Link>
                         </div>
                       </div>
-                      <div className="rounded-lg overflow-hidden shadow-lg">
+                      <div className="rounded-lg overflow-hidden shadow-lg h-[500px]">
                         <Image
                           src="/images/servicesImg02.png"
                           alt="Entreprises"
@@ -508,7 +541,7 @@ export default function Home() {
                           </Link>
                         </div>
                       </div>
-                      <div className="rounded-lg overflow-hidden shadow-lg">
+                      <div className="rounded-lg overflow-hidden shadow-lg h-[500px]">
                         <Image
                           src="/images/servicesImg03.png"
                           alt="Entreprises"
@@ -581,7 +614,7 @@ export default function Home() {
                     <h3 className="text-xl font-bold mb-2">
                       {formation.title}
                     </h3>
-                    <p className="text-gray-500 mb-2 blur-sm hover:blur-none transition-all">
+                    <p className="text-gray-500 mb-2 blur-sm hover:blur-non transition-all cursor-pointer ">
                       {formation.school}
                     </p>
                     <div className="flex items-center mb-4">
@@ -685,74 +718,55 @@ export default function Home() {
         </section>
 
         {/* FAQ Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404]">
+                <Badge className="mb-2 bg-[#db9404] text-white px-3 py-1 rounded-full text-sm">
                   Questions fréquentes
                 </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Besoin d'aide ?
                 </h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Retrouvez les réponses aux questions les plus fréquemment
                   posées
                 </p>
               </div>
             </div>
 
-            <div className="mx-auto max-w-3xl space-y-4">
-              {[
-                {
-                  question:
-                    "Comment fonctionne l'inscription sur la plateforme ?",
-                  answer:
-                    "L'inscription est simple et gratuite. Vous choisissez votre profil (entreprise, école ou formateur), remplissez le formulaire avec vos informations et vous pouvez commencer à utiliser la plateforme. Des options premium sont disponibles pour accéder à toutes les fonctionnalités.",
-                },
-                {
-                  question:
-                    "Quels sont les différents abonnements disponibles ?",
-                  answer:
-                    "Nous proposons trois types d'abonnements : Essentiel, Professionnel et Entreprise. Chaque formule offre un niveau d'accès différent aux formations, profils de formateurs et fonctionnalités. Vous pouvez consulter notre page Tarifs pour plus de détails.",
-                },
-                {
-                  question:
-                    "Comment sont sélectionnées les formations sur la plateforme ?",
-                  answer:
-                    "Toutes les formations sont proposées par des écoles et organismes vérifiés. Nous vérifions les agréments et certifications. Les formations sont ensuite évaluées par les utilisateurs pour garantir leur qualité.",
-                },
-                {
-                  question: "Comment demander une formation sur mesure ?",
-                  answer:
-                    "Vous pouvez soumettre une demande de formation sur mesure via notre formulaire dédié. Décrivez vos besoins spécifiques et nous vous mettrons en relation avec les écoles et formateurs les plus adaptés à votre demande.",
-                },
-                {
-                  question: "Comment devenir formateur sur la plateforme ?",
-                  answer:
-                    "Pour devenir formateur, inscrivez-vous avec le profil 'Formateur/Consultant', complétez votre profil avec vos compétences et expériences, téléchargez votre CV et choisissez votre abonnement. Votre profil sera ensuite visible par les entreprises et écoles de formation.",
-                },
-              ].map((faq, index) => (
-                <Card key={index} className="p-6">
-                  <h3 className="text-lg font-bold mb-2">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
-                </Card>
+            <Accordion type="multiple" className="mx-auto max-w-4xl space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="border border-gray-200 rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <AccordionTrigger className="px-6 py-4 text-left text-xl font-medium text-gray-800 hover:text-primary transition-colors">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 text-base text-gray-600">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
 
-            <div className="text-center mt-10">
-              <p className="text-gray-500 mb-4">
+            <div className="text-center mt-12">
+              <p className="text-gray-500 mb-4 text-lg">
                 Vous ne trouvez pas la réponse à votre question ?
               </p>
               <Link href="/contact">
-                <Button>Contactez-nous</Button>
+                <Button className="text-white bg-[#db9404] hover:bg-[#c88302] transition-colors">
+                  Contactez-nous
+                </Button>
               </Link>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#001282] text-white">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#001282] text-white ">
           <div className=" w-full px-4 md:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>

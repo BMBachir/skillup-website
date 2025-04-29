@@ -91,7 +91,7 @@ export default function FormateursPage() {
                   </CardDescription>
                   <div className="flex items-center mt-1 text-sm text-gray-500">
                     <MapPin className="h-3 w-3 mr-1" />
-                    <span className="blur-sm hover:blur-none transition-all">
+                    <span className="blur-sm hover:blur-non transition-all">
                       {formateur.location}
                     </span>
                   </div>
@@ -128,7 +128,7 @@ export default function FormateursPage() {
                   </Badge>
                 ))}
               </div>
-              <p className="text-sm blur-sm hover:blur-none transition-all">
+              <p className="text-sm blur-sm hover:blur-non transition-all">
                 {formateur.description}
               </p>
             </CardContent>
