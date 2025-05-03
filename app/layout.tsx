@@ -6,7 +6,7 @@ import { MainNav } from "./components/main-nav";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "FormationConnect - Plateforme de mise en relation",
+  title: "SkillUp - Plateforme de mise en relation",
   description:
     "Plateforme innovante de mise en relation entre entreprises, écoles de formation, formateurs et consultants",
 };
@@ -29,7 +29,7 @@ export default function RootLayout({
           <main>{children}</main>
           <footer className="py-6 md:py-0 md:px-8 md:h-24 border-t flex flex-col md:flex-row items-center justify-between">
             <p className="text-sm text-gray-500 text-center md:text-left">
-              © 2025 FormationConnect. Tous droits réservés.
+              © 2025 SkillUP. Tous droits réservés.
             </p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
               <a href="#" className="text-sm text-gray-500 hover:underline">

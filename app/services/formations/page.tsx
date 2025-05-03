@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Star, StarHalf } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
 
 export default function FormationsPage() {
   // Exemple de données de formations
@@ -55,7 +57,19 @@ export default function FormationsPage() {
         "Formation aux techniques de protection des systèmes d'information et gestion des risques informatiques.",
     },
   ];
+  type RegisteredUser = {
+    payment: string;
+    userType?: string;
+    name?: string;
+  };
+  const [storedUser, setStoredUser] = useState<RegisteredUser | null>(null);
 
+  useEffect(() => {
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      setStoredUser(JSON.parse(userData));
+    }
+  }, []);
   return (
     <div className="container py-10">
       <div className="space-y-4 mb-8">
@@ -72,7 +86,14 @@ export default function FormationsPage() {
               <div className="flex justify-between items-start">
                 <div>
                   <CardTitle>{formation.title}</CardTitle>
-                  <CardDescription className="mt-1 blur-sm hover:blur-non transition-all">
+                  <CardDescription
+                    className={`text-gray-500 mb-2 ${
+                      !storedUser ||
+                      storedUser?.payment?.toLowerCase() === "freemium"
+                        ? "blur-sm"
+                        : ""
+                    } transition-all cursor-pointer`}
+                  >
                     {formation.school}
                   </CardDescription>
                 </div>
@@ -99,7 +120,16 @@ export default function FormationsPage() {
               <p className="text-sm text-gray-500 mb-2">
                 Durée: {formation.duration}
               </p>
-              <p className="text-sm">{formation.description}</p>
+              <p
+                className={`text-gray-500 mb-2 ${
+                  !storedUser ||
+                  storedUser?.payment?.toLowerCase() === "freemium"
+                    ? "blur-sm"
+                    : ""
+                } transition-all cursor-pointer text-sm`}
+              >
+                {formation.description}
+              </p>
             </CardContent>
             <CardFooter>
               <Link

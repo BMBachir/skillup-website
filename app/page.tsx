@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   ChevronRight,
@@ -13,9 +14,17 @@ import {
   Building,
   GraduationCap,
   UserRound,
+  Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
@@ -25,6 +34,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
 
 const faqs = [
   {
@@ -53,9 +65,93 @@ const faqs = [
       "Pour devenir formateur, inscrivez-vous avec le profil 'Formateur/Consultant', complétez votre profil avec vos compétences et expériences, téléchargez votre CV et choisissez votre abonnement. Votre profil sera ensuite visible par les entreprises et écoles de formation.",
   },
 ];
+
+type RegisteredUser = {
+  payment: string;
+  userType?: string;
+  name?: string;
+};
+
 export default function Home() {
+  const [storedUser, setStoredUser] = useState<RegisteredUser | null>(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      setStoredUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const packs = [
+    {
+      id: "Freemium",
+      name: "Freemium",
+      description: "Pour les petites entreprises et les indépendants",
+      price: "0",
+      features: [
+        "Accès à site web complètes",
+        "Consultation de 5 profils de formateurs",
+        "1 demande de formation sur mesure",
+        "Support par email",
+      ],
+      cta: "Choisir l'offre Essentiel",
+      popular: false,
+    },
+    {
+      id: "Premium",
+      name: " Premium",
+      description: "Pour les entreprises en croissance",
+      price: "1499",
+      features: [
+        "Accès à 50 formations complètes",
+        "Consultation de 20 profils de formateurs",
+        "3 demandes de formation sur mesure",
+        "Support prioritaire",
+        "Tableau de bord analytique",
+      ],
+      cta: "Choisir l'offre Professionnel",
+      popular: true,
+    },
+    {
+      id: "abbonmet",
+      name: " abjbonmet",
+      description: "Pour les entreprises en croissance",
+      price: "1499",
+      features: [
+        "Accès à 50 formations complètes",
+        "Consultation de 20 profils de formateurs",
+        "3 demandes de formation sur mesure",
+        "Support prioritaire",
+        "Tableau de bord analytique",
+      ],
+      cta: "Choisir l'offre Professionnel",
+      popular: false,
+    },
+  ];
+
+  const router = useRouter();
+
+  const handlePackSelection = (selectedPackId: string) => {
+    const userData = localStorage.getItem("registeredUser");
+
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      parsedData.payment = selectedPackId;
+      localStorage.setItem("registeredUser", JSON.stringify(parsedData));
+
+      if (selectedPackId === "Premium") {
+        router.push("/pricing/e-payment");
+      } else {
+        router.push("/");
+      }
+    } else {
+      toast.error("Inscrivez-vous pour choisir une offre");
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <ToastContainer position="bottom-right" draggable theme="colored" />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -559,7 +655,7 @@ export default function Home() {
         </section>
 
         {/* Featured Formations Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32" id="formation">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
@@ -614,9 +710,17 @@ export default function Home() {
                     <h3 className="text-xl font-bold mb-2">
                       {formation.title}
                     </h3>
-                    <p className="text-gray-500 mb-2 blur-sm hover:blur-non transition-all cursor-pointer ">
+                    <p
+                      className={`text-gray-500 mb-2 ${
+                        !storedUser ||
+                        storedUser?.payment?.toLowerCase() === "freemium"
+                          ? "blur-sm"
+                          : ""
+                      } transition-all cursor-pointer`}
+                    >
                       {formation.school}
                     </p>
+
                     <div className="flex items-center mb-4">
                       {Array(5)
                         .fill(0)
@@ -677,7 +781,7 @@ export default function Home() {
                   role: "DRH, Entreprise Tech",
                   image: "/images/profile01.png",
                   quote:
-                    "FormationConnect nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
+                    "SkillUP nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
                 },
                 {
                   name: "Jean Martin",
@@ -691,7 +795,7 @@ export default function Home() {
                   role: "Formatrice indépendante",
                   image: "/images/profile03.png",
                   quote:
-                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à FormationConnect.",
+                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à SkillUP.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">
@@ -766,36 +870,77 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#001282] text-white ">
-          <div className=" w-full px-4 md:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                  Prêt à rejoindre notre communauté ?
-                </h2>
-                <p className="text-xl/relaxed text-blue-100 mb-6">
-                  Inscrivez-vous gratuitement et découvrez tous les avantages de
-                  notre plateforme de formation.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/auth/register">
-                    <Button className="bg-white text-[#001282] hover:bg-blue-50">
-                      S'inscrire gratuitement
-                    </Button>
-                  </Link>
-                  <Link href="/pricing">
-                    <Button
-                      variant="outline"
-                      className="border-white text-[#001282] hover:text-white hover:bg-[#001282] transition-all duration-500 ease-in-out"
-                    >
-                      Découvrir nos offres
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+        <div className="container py-10">
+          <div className="space-y-4 text-center mb-10">
+            <h1 className="text-3xl font-bold">Nos offres</h1>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Choisissez l'offre qui correspond le mieux à vos besoins et
+              accédez à l'ensemble de nos services premium
+            </p>
           </div>
-        </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {packs.map((pack) => (
+              <Card
+                key={pack.id}
+                className={`flex flex-col ${
+                  pack.popular ? "border-[#001282] shadow-lg" : ""
+                }`}
+              >
+                {pack.popular && (
+                  <div className="bg-[#001282] text-white text-center py-1 text-sm font-medium">
+                    Recommandé
+                  </div>
+                )}
+                <CardHeader>
+                  <CardTitle>{pack.name}</CardTitle>
+                  <CardDescription>{pack.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold">{pack.price} DZ</span>
+                    <span className="text-gray-500 ml-1">/mois</span>
+                  </div>
+                  <ul className="space-y-3">
+                    {pack.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button
+                    onClick={() => handlePackSelection(pack.id)}
+                    className={`w-full cursor-pointer transition-colors duration-500 ${
+                      pack.popular ? "bg-[#001282] hover:bg-blue-800" : ""
+                    }`}
+                    variant={pack.popular ? "default" : "outline"}
+                  >
+                    {pack.cta}
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <h2 className="text-2xl font-bold mb-4">
+              Vous avez des besoins spécifiques ?
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto mb-6">
+              Nous proposons également des offres personnalisées pour les
+              organisations avec des besoins particuliers. Contactez notre
+              équipe commerciale pour discuter de vos exigences.
+            </p>
+            <Link href="/contact">
+              <Button variant="outline" size="lg">
+                Nous contacter
+              </Button>
+            </Link>
+          </div>
+        </div>
 
         {/* Contact Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Star, StarHalf, MapPin, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
 
 export default function FormateursPage() {
   // Exemple de données de formateurs
@@ -59,7 +61,20 @@ export default function FormateursPage() {
         "Consultant et formateur en sécurité informatique avec une expertise reconnue dans la protection des systèmes d'information.",
     },
   ];
+  type RegisteredUser = {
+    payment: string;
+    userType?: string;
+    name?: string;
+  };
 
+  const [storedUser, setStoredUser] = useState<RegisteredUser | null>(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      setStoredUser(JSON.parse(userData));
+    }
+  }, []);
   return (
     <div className="container py-10">
       <div className="space-y-4 mb-8">
@@ -85,13 +100,29 @@ export default function FormateursPage() {
                   />
                 </div>
                 <div>
-                  <CardTitle>{formateur.name}</CardTitle>
+                  <CardTitle
+                    className={`text-gray-900 mb-2 ${
+                      !storedUser ||
+                      storedUser?.payment?.toLowerCase() === "freemium"
+                        ? "blur-sm"
+                        : ""
+                    } transition-all cursor-pointer`}
+                  >
+                    {formateur.name}
+                  </CardTitle>
                   <CardDescription className="mt-1">
                     {formateur.title}
                   </CardDescription>
                   <div className="flex items-center mt-1 text-sm text-gray-500">
                     <MapPin className="h-3 w-3 mr-1" />
-                    <span className="blur-sm hover:blur-non transition-all">
+                    <span
+                      className={`text-gray-500 mb-2 ${
+                        !storedUser ||
+                        storedUser?.payment?.toLowerCase() === "freemium"
+                          ? "blur-sm"
+                          : ""
+                      } transition-all cursor-pointer`}
+                    >
                       {formateur.location}
                     </span>
                   </div>
@@ -128,7 +159,14 @@ export default function FormateursPage() {
                   </Badge>
                 ))}
               </div>
-              <p className="text-sm blur-sm hover:blur-non transition-all">
+              <p
+                className={`text-gray-500 mb-2 ${
+                  !storedUser ||
+                  storedUser?.payment?.toLowerCase() === "freemium"
+                    ? "blur-sm"
+                    : ""
+                } transition-all cursor-pointer`}
+              >
                 {formateur.description}
               </p>
             </CardContent>

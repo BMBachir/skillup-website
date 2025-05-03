@@ -11,7 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
+
 export default function PricingPage() {
   const packs = [
     {
@@ -43,40 +44,29 @@ export default function PricingPage() {
       cta: "Choisir l'offre Professionnel",
       popular: true,
     },
-    {
-      id: "Professionnel",
-      name: "Professionnel",
-      description: "Pour les grandes organisations",
-      price: "2499",
-      features: [
-        "Accès illimité aux formations",
-        "Consultation illimitée des profils",
-        "Demandes illimitées de formation sur mesure",
-        "Support dédié 24/7",
-        "Tableau de bord analytique avancé",
-        "Intégration API personnalisée",
-      ],
-      cta: "Contacter les ventes",
-      popular: false,
-    },
   ];
   const router = useRouter();
   const handlePackSelection = (selectedPackId: string) => {
-    console.log("Selected pack:", selectedPackId);
-
     const userData = localStorage.getItem("registeredUser");
+
     if (userData) {
       const parsedData = JSON.parse(userData);
       parsedData.payment = selectedPackId;
-      console.log("Before update:", parsedData);
       localStorage.setItem("registeredUser", JSON.stringify(parsedData));
-      toast.success("Offre sélectionnée avec succès !");
-      router.push("/");
+
+      if (selectedPackId === "Premium") {
+        router.push("/pricing/e-payment");
+      } else {
+        router.push("/");
+      }
+    } else {
+      toast.error("Inscrivez-vous pour choisir une offre");
     }
   };
 
   return (
-    <div className="container py-10">
+    <div className="container py-10 mt-[100px]">
+      <ToastContainer position="bottom-right" draggable theme="colored" />
       <div className="space-y-4 text-center mb-10">
         <h1 className="text-3xl font-bold">Nos offres</h1>
         <p className="text-gray-500 max-w-2xl mx-auto">
@@ -85,7 +75,7 @@ export default function PricingPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {packs.map((pack) => (
           <Card
             key={pack.id}
@@ -119,8 +109,10 @@ export default function PricingPage() {
             <CardFooter>
               <Button
                 onClick={() => handlePackSelection(pack.id)}
-                className={`w-full ${
-                  pack.popular ? "bg-[#001282] hover:bg-blue-700" : ""
+                className={`w-full cursor-pointer transition-colors duration-500 ${
+                  pack.popular
+                    ? "bg-[#001282] hover:bg-blue-900"
+                    : " hover:bg-gray-300"
                 }`}
                 variant={pack.popular ? "default" : "outline"}
               >

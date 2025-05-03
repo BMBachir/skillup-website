@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,12 +11,41 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { LayoutDashboard, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function MainNav() {
-  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [routerPath, setRouterPath] = useState<string>("/");
+  const [userExists, setUserExists] = useState<boolean>(false);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("registeredUser");
+
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setUserExists(true);
+
+      switch (parsedUser.userType) {
+        case "entreprise":
+          setRouterPath("/dashboard/enterprise");
+          break;
+        case "ecole":
+          setRouterPath("/dashboard/ecole");
+          break;
+        case "formateur":
+          setRouterPath("/dashboard/formateur");
+          break;
+        default:
+          setRouterPath("/");
+      }
+    }
+  }, [userExists]);
+  const handleLogout = () => {
+    localStorage.removeItem("registeredUser");
+    setUserExists(false);
+    window.location.reload();
+  };
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -84,6 +112,15 @@ export function MainNav() {
                       </NavigationMenuLink>
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/services/sur-mesure" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        Projet
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -103,22 +140,39 @@ export function MainNav() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center gap-4">
-          <Link href="/auth/login">
-            <Button
-              variant="outline"
-              className="hidden md:flex cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
-            >
-              Connexion
-            </Button>
-          </Link>
-          <Link href="/auth/register">
-            <Button className="bg-[#db9404] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
-              Inscription
-            </Button>
-          </Link>
-        </div>
+        {userExists ? (
+          <div className="flex items-center gap-4">
+            <Link href={routerPath}>
+              <Button className="bg-[#001282] transition ease-in-out delay-150 hover:-translate-y-1 duration-500 cursor-pointer">
+                Dashboard
+                <LayoutDashboard size={20} className="ml-2" />
+              </Button>
+            </Link>
 
+            <Button
+              className="bg-[#db9404]  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
+              onClick={handleLogout}
+            >
+              Déconnexion
+            </Button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-4">
+            <Link href="/auth/login">
+              <Button
+                variant="outline"
+                className="hidden md:flex cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
+              >
+                Connexion
+              </Button>
+            </Link>
+            <Link href="/auth/register">
+              <Button className="bg-[#db9404] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
+                Inscription
+              </Button>
+            </Link>
+          </div>
+        )}
         {/* Mobile Toggle Button */}
         <button
           className="md:hidden"

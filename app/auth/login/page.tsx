@@ -43,13 +43,13 @@ export default function LoginPage() {
       toast.success("Connexion réussie !");
       switch (registeredUser.userType) {
         case "entreprise":
-          router.push("/entreprise/dashboard");
+          router.push("/dashboard/enterprise");
           break;
         case "ecole":
-          router.push("/ecole/dashboard");
+          router.push("/dashboard/ecole");
           break;
         case "formateur":
-          router.push("/formateur/dashboard");
+          router.push("/dashboard/formateur");
           break;
         default:
           toast.error("Type d'utilisateur inconnu");
@@ -60,7 +60,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container py-10">
+    <div className="container py-10 mt-[100px] mb-[150px]">
       <div className="max-w-md mx-auto space-y-6">
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-bold">Connexion</h1>
@@ -91,7 +91,7 @@ export default function LoginPage() {
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Mot de passe</Label>
                   <Link
-                    href="/auth/reset-password"
+                    href="/auth/login"
                     className="text-sm text-blue-600 hover:underline"
                   >
                     Mot de passe oublié ?

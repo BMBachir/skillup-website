@@ -58,8 +58,8 @@ export default function RegisterPage() {
   }, [userType]);
 
   return (
-    <div className="container py-10">
-      <div className="max-w-md mx-auto space-y-6">
+    <div className="container py-10 mt-[100px]">
+      <div className="max-w-md lg:max-w-3xl mx-auto space-y-6">
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-bold">Créer un compte</h1>
           <p className="text-gray-500">
@@ -67,7 +67,7 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <Card>
+        <Card className="w-3xl ">
           <CardHeader>
             <CardTitle>Je suis...</CardTitle>
             <CardDescription>
@@ -77,7 +77,7 @@ export default function RegisterPage() {
           <CardContent>
             <RadioGroup
               defaultValue="entreprise"
-              className="grid grid-cols-1 gap-4"
+              className="grid grid-cols-1 lg:grid-cols-3 gap-4"
               onValueChange={setUserType}
               value={userType}
             >
