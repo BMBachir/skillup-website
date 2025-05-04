@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,10 +18,41 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CheckCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+type RegisteredUser = {
+  payment: string;
+  userType?: string;
+  name?: string;
+};
 
 export default function SurMesurePage() {
+  const [storedUser, setStoredUser] = useState<RegisteredUser | null>(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      setStoredUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!storedUser || storedUser.payment !== "Premium") {
+      toast.error(
+        "Veuillez souscrire à l'offre premium pour envoyer une demande."
+      );
+      return;
+    }
+
+    // ✅ Proceed with submission
+    toast.success("Votre demande a été envoyée avec succès. ✅");
+  };
+
   return (
-    <div className="container py-10">
+    <div className="container py-10 mt-[4rem] ">
+      <ToastContainer position="bottom-right" />
       <div className="space-y-4 mb-8">
         <h1 className="text-3xl font-bold">Formations sur mesure & Projets</h1>
         <p className="text-gray-500">
@@ -197,7 +229,11 @@ export default function SurMesurePage() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full">
+                <Button
+                  type="submit"
+                  className="w-full"
+                  onClick={(e) => handleSubmit(e)}
+                >
                   Envoyer ma demande
                 </Button>
               </form>

@@ -175,19 +175,16 @@ export default function RegisterPage() {
                     </span>
                   </Label>
 
-                  {/* Text input */}
                   <Input
                     name="license"
                     placeholder="Numéro d'agrément officiel"
                     onChange={handleChange}
                   />
 
-                  {/* OR separator */}
                   <div className="text-center text-gray-400 text-sm">
                     — ou —
                   </div>
 
-                  {/* File upload */}
                   <Input
                     type="file"
                     name="licenseFile"
