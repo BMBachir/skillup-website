@@ -1,9 +1,8 @@
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
+
 import { cn } from "@/lib/utils";
 import { MainNav } from "./components/main-nav";
-
-const inter = Inter({ subsets: ["latin"] });
+import ChatBot from "./components/ChatBot";
 
 export const metadata = {
   title: "SkillUp - Plateforme de mise en relation",
@@ -18,12 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          inter.className
-        )}
-      >
+      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
         <div className="container mx-auto ">
           <MainNav />
           <main>{children}</main>
@@ -42,6 +36,7 @@ export default function RootLayout({
                 CGU
               </a>
             </div>
+            <ChatBot />
           </footer>
         </div>
       </body>

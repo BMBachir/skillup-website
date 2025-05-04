@@ -167,6 +167,39 @@ export default function RegisterPage() {
                     onChange={handleChange}
                   />
                 </div>
+                <div className="space-y-2">
+                  <Label>
+                    Numéro d'agrément{" "}
+                    <span className="text-gray-500">
+                      (ou téléversez le document)
+                    </span>
+                  </Label>
+
+                  {/* Text input */}
+                  <Input
+                    name="license"
+                    placeholder="Numéro d'agrément officiel"
+                    onChange={handleChange}
+                  />
+
+                  {/* OR separator */}
+                  <div className="text-center text-gray-400 text-sm">
+                    — ou —
+                  </div>
+
+                  {/* File upload */}
+                  <Input
+                    type="file"
+                    name="licenseFile"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onChange={handleChange}
+                  />
+
+                  <p className="text-xs text-gray-500">
+                    Vous pouvez soit entrer le numéro d'agrément soit téléverser
+                    le document (PDF ou image).
+                  </p>
+                </div>
                 <Button type="submit" className="w-full">
                   S'inscrire en tant qu'entreprise
                 </Button>
@@ -212,13 +245,37 @@ export default function RegisterPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="school-license">Numéro d'agrément</Label>
+                  <Label>
+                    Numéro d'agrément{" "}
+                    <span className="text-gray-500">
+                      (ou téléversez le document)
+                    </span>
+                  </Label>
+
+                  {/* Text input */}
                   <Input
                     name="license"
                     placeholder="Numéro d'agrément officiel"
-                    required
                     onChange={handleChange}
                   />
+
+                  {/* OR separator */}
+                  <div className="text-center text-gray-400 text-sm">
+                    — ou —
+                  </div>
+
+                  {/* File upload */}
+                  <Input
+                    type="file"
+                    name="licenseFile"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    onChange={handleChange}
+                  />
+
+                  <p className="text-xs text-gray-500">
+                    Vous pouvez soit entrer le numéro d'agrément soit téléverser
+                    le document (PDF ou image).
+                  </p>
                 </div>
                 <Button type="submit" className="w-full">
                   S'inscrire en tant qu'école
