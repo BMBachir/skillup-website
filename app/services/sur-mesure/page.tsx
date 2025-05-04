@@ -175,7 +175,7 @@ export default function SurMesurePage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <Label htmlFor="company">Nom de l'entreprise</Label>
                   <Input id="company" placeholder="Votre entreprise" />
@@ -229,11 +229,7 @@ export default function SurMesurePage() {
                   />
                 </div>
 
-                <Button
-                  type="submit"
-                  className="w-full"
-                  onClick={(e) => handleSubmit(e)}
-                >
+                <Button type="submit" className="w-full">
                   Envoyer ma demande
                 </Button>
               </form>
