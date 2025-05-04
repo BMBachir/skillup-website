@@ -21,23 +21,8 @@ export default function RootLayout({
         <div className="container mx-auto ">
           <MainNav />
           <main>{children}</main>
-          <footer className="py-6 md:py-0 md:px-8 md:h-24 border-t flex flex-col md:flex-row items-center justify-between">
-            <p className="text-sm text-gray-500 text-center md:text-left">
-              © 2025 SkillUP. Tous droits réservés.
-            </p>
-            <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <a href="#" className="text-sm text-gray-500 hover:underline">
-                Mentions légales
-              </a>
-              <a href="#" className="text-sm text-gray-500 hover:underline">
-                Politique de confidentialité
-              </a>
-              <a href="#" className="text-sm text-gray-500 hover:underline">
-                CGU
-              </a>
-            </div>
-            <ChatBot />
-          </footer>
+
+          <ChatBot />
         </div>
       </body>
     </html>
