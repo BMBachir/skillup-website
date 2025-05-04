@@ -71,7 +71,7 @@ export function MainNav() {
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
-                      <a
+                      <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#001282] to-blue-800 p-6 no-underline outline-none focus:shadow-md"
                         href="/services"
                       >
@@ -82,11 +82,11 @@ export function MainNav() {
                           Découvrez notre écosystème complet pour tous les
                           acteurs de la formation professionnelle
                         </p>
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   <li>
-                    <Link href="/services/formations" legacyBehavior passHref>
+                    <Link href="/services/formations">
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
                       >
@@ -95,7 +95,7 @@ export function MainNav() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/formateurs" legacyBehavior passHref>
+                    <Link href="/services/formateurs">
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
                       >
@@ -104,7 +104,7 @@ export function MainNav() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/sur-mesure" legacyBehavior passHref>
+                    <Link href="/services/sur-mesure">
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
                       >
@@ -125,18 +125,20 @@ export function MainNav() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  À propos
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <Link href="/about">À propos</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <Link href="/contact">Contact</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
