@@ -64,7 +64,7 @@ export function MainNav() {
 
         {/* Desktop Nav */}
 
-        <NavigationMenu>
+        <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Nos Services</NavigationMenuTrigger>
@@ -135,7 +135,7 @@ export function MainNav() {
           </NavigationMenuList>
         </NavigationMenu>
         {userExists ? (
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <Link href={routerPath}>
               <Button className="bg-[#001282] transition ease-in-out delay-150 hover:-translate-y-1 duration-500 cursor-pointer">
                 Dashboard
@@ -144,7 +144,7 @@ export function MainNav() {
             </Link>
 
             <Button
-              className="bg-[#840103]  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
+              className="hidden md:flex bg-[#840103]  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
               onClick={handleLogout}
             >
               Déconnexion
@@ -165,7 +165,7 @@ export function MainNav() {
               </Button>
             </Link>
             <Link href="/auth/register">
-              <Button className="bg-[#840103] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
+              <Button className="hidden md:flex bg-[#840103] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
                 Inscription
               </Button>
             </Link>
