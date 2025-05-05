@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import {
   Star,
   StarHalf,
@@ -643,16 +643,18 @@ const formationsData = [
 ];
 
 interface PageProps {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 }
 
 export default function FormationDetailPage({ params }: PageProps) {
-  const { id } = useParams();
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const formation = formationsData.find((f) => f.id === params.id);
 
-  // Trouver la formation correspondante à l'ID
-  const formation =
-    formationsData.find((f) => f.id === id) || formationsData[0];
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  if (!formation) {
+    notFound();
+  }
 
   // Fonction pour afficher les étoiles de notation
   const renderStars = (rating: number) => {
