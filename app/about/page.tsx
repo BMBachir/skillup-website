@@ -20,7 +20,7 @@ export default function AboutPage() {
     {
       name: "Marie Laurent",
       role: "Fondatrice & CEO",
-      bio: "Ancienne DRH avec 15 ans d'expérience dans la formation professionnelle, Marie a fondé Skillup Dz pour révolutionner l'accès à la formation.",
+      bio: "Ancienne DRH avec 15 ans d'expérience dans la formation professionnelle, Marie a fondé Skillup Link pour révolutionner l'accès à la formation.",
       image: "/images/profile.webp",
     },
     {
@@ -46,7 +46,7 @@ export default function AboutPage() {
   const milestones = [
     {
       year: "2025",
-      title: "Création de Skillup Dz",
+      title: "Création de Skillup Link",
       description: "Lancement de l'idée et constitution de l'équipe fondatrice",
     },
     {
@@ -116,11 +116,11 @@ export default function AboutPage() {
               <div className="space-y-2">
                 <Badge className="mb-2">Notre Histoire</Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                  À propos de Skillup Dz
+                  À propos de Skillup Link
                 </h1>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Découvrez notre mission, nos valeurs et l'équipe qui fait de
-                  Skillup Dz la plateforme de référence pour la formation
+                  Skillup Link la plateforme de référence pour la formation
                   professionnelle.
                 </p>
               </div>
@@ -138,11 +138,11 @@ export default function AboutPage() {
                   Révolutionner la formation professionnelle
                 </h2>
                 <p className="text-gray-500 md:text-xl/relaxed">
-                  Chez Skillup Dz, nous croyons que la formation professionnelle
-                  devrait être accessible, transparente et efficace pour tous.
-                  Notre mission est de créer un écosystème où entreprises,
-                  écoles de formation, formateurs et apprenants peuvent se
-                  connecter et collaborer sans friction.
+                  Chez Skillup Link, nous croyons que la formation
+                  professionnelle devrait être accessible, transparente et
+                  efficace pour tous. Notre mission est de créer un écosystème
+                  où entreprises, écoles de formation, formateurs et apprenants
+                  peuvent se connecter et collaborer sans friction.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -249,14 +249,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Team Section */}
+        {/* Team Section 
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
                 <Badge className="mb-2">Notre Équipe</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Les visages derrière Skillup Dz
+                  Les visages derrière Skillup Link
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Une équipe passionnée et expérimentée dédiée à transformer le
@@ -286,15 +286,15 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section>*/}
 
-        {/* Stats Section */}
+        {/* Stats Section 
         <section className="w-full py-12 md:py-16 lg:py-20 border-y bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-10">
               <Badge className="mb-2">En Chiffres</Badge>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Skillup Dz aujourd'hui
+                Skillup Link aujourd'hui
               </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -344,7 +344,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
 
         {/* Timeline Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -353,7 +353,7 @@ export default function AboutPage() {
               <div className="space-y-2">
                 <Badge className="mb-2">Notre Parcours</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  L'histoire de Skillup Dz
+                  L'histoire de Skillup Link
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   De l'idée initiale à aujourd'hui, découvrez les étapes clés de
@@ -395,7 +395,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Partners Section */}
+        {/* Partners Section 
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
@@ -405,8 +405,8 @@ export default function AboutPage() {
                   Ils nous font confiance
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Skillup Dz collabore avec des entreprises et organisations de
-                  premier plan.
+                  Skillup Link collabore avec des entreprises et organisations
+                  de premier plan.
                 </p>
               </div>
             </div>
@@ -426,13 +426,13 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section>*/}
 
         {/* CTA Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-600 text-white">
           <div className="container px-4 md:px-6 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-              Rejoignez l'aventure Skillup Dz
+              Rejoignez l'aventure Skillup Link
             </h2>
             <p className="max-w-[700px] mx-auto text-xl/relaxed text-blue-100 mb-6">
               Que vous soyez une entreprise, une école de formation ou un
@@ -467,7 +467,7 @@ export default function AboutPage() {
                   Questions fréquentes
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Tout ce que vous devez savoir sur Skillup Dz
+                  Tout ce que vous devez savoir sur Skillup Link
                 </p>
               </div>
             </div>
@@ -482,10 +482,10 @@ export default function AboutPage() {
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold mb-2">
-                      Qu'est-ce que Skillup Dz ?
+                      Qu'est-ce que Skillup Link ?
                     </h3>
                     <p className="text-gray-600">
-                      Skillup Dz est une plateforme qui met en relation les
+                      Skillup Link est une plateforme qui met en relation les
                       entreprises, les écoles de formation, les formateurs et
                       les consultants pour faciliter l'accès à la formation
                       professionnelle de qualité.
@@ -510,12 +510,12 @@ export default function AboutPage() {
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold mb-2">
-                      Skillup Dz est-il disponible à l'international ?
+                      Skillup Link est-il disponible à l'international ?
                     </h3>
                     <p className="text-gray-600">
-                      Oui, Skillup Dz est disponible en France, Belgique, Suisse
-                      et Canada. Nous prévoyons d'étendre notre présence à
-                      d'autres pays européens dans les prochaines années.
+                      Oui, Skillup Link est disponible en France, Belgique,
+                      Suisse et Canada. Nous prévoyons d'étendre notre présence
+                      à d'autres pays européens dans les prochaines années.
                     </p>
                   </CardContent>
                 </Card>

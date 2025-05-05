@@ -54,7 +54,9 @@ export default function SurMesurePage() {
     <div className="container py-10 mt-[4rem] ">
       <ToastContainer position="bottom-right" />
       <div className="space-y-4 mb-8">
-        <h1 className="text-3xl font-bold">Formations sur mesure & Projets</h1>
+        <h1 className="text-3xl font-bold">
+          Formations sur mesure & Projets a réaliser
+        </h1>
         <p className="text-gray-500">
           Créez des programmes de formation adaptés à vos besoins spécifiques ou
           confiez-nous vos projets
@@ -64,7 +66,7 @@ export default function SurMesurePage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div>
           <h2 className="text-2xl font-semibold mb-6">
-            Pourquoi choisir une formation sur mesure ?
+            Pourquoi choisir une formation sur mesure / projets a réaliser ?
           </h2>
 
           <div className="space-y-4 mb-8">
@@ -169,7 +171,9 @@ export default function SurMesurePage() {
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>Demande de formation sur mesure</CardTitle>
+              <CardTitle>
+                Demande de formation sur mesure / projets a réaliser
+              </CardTitle>
               <CardDescription>
                 Décrivez vos besoins et nous vous contacterons rapidement
               </CardDescription>

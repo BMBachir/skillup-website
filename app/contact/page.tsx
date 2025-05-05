@@ -109,7 +109,7 @@ export default function ContactPage() {
     {
       question: "Avez-vous un programme de partenariat ?",
       answer:
-        "Oui, nous proposons un programme de partenariat pour les entreprises et organisations qui souhaitent collaborer avec Skillup Dz. Contactez-nous pour plus d'informations.",
+        "Oui, nous proposons un programme de partenariat pour les entreprises et organisations qui souhaitent collaborer avec Skillup Link. Contactez-nous pour plus d'informations.",
     },
   ];
 
@@ -317,9 +317,9 @@ export default function ContactPage() {
                           </div>
                           <div>
                             <h3 className="font-medium">Téléphone</h3>
-                            <p className="text-gray-500">+33 1 23 45 67 89</p>
+                            <p className="text-gray-500">+213 666 43 65 60</p>
                             <p className="text-sm text-gray-500">
-                              Du lundi au vendredi, 9h-18h
+                              Du samedi au jeudi, 8:30h-17h
                             </p>
                           </div>
                         </div>
@@ -335,7 +335,7 @@ export default function ContactPage() {
                           <div>
                             <h3 className="font-medium">Email</h3>
                             <p className="text-gray-500">
-                              contact@formation-connect.fr
+                              Skilluplink213@gmail.com
                             </p>
                             <p className="text-sm text-gray-500">
                               Réponse sous 24h ouvrées
@@ -500,7 +500,7 @@ export default function ContactPage() {
               Prêt à transformer votre approche de la formation ?
             </h2>
             <p className="max-w-[700px] mx-auto text-xl/relaxed text-blue-100 mb-6">
-              Rejoignez Skillup Dz dès aujourd'hui et découvrez comment notre
+              Rejoignez Skillup Link dès aujourd'hui et découvrez comment notre
               plateforme peut répondre à vos besoins en formation
               professionnelle.
             </p>

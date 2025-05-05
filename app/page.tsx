@@ -155,7 +155,7 @@ export default function Home() {
                   Plateforme Innovante
                 </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                  L'écosystème complet de la formation professionnelle
+                  Votre pont vers l'excellence professionnelle
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Connectez-vous à un réseau unique qui réunit entreprises,
@@ -325,7 +325,7 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-500 mb-4">
                   Créez des programmes adaptés à vos besoins spécifiques et
-                  parfaiment alignées avec les objectifs profzssionnels et les
+                  parfaiment alignées avec les objectifs professionnels et les
                   évolutions du marché.
                 </p>
                 <ul className="text-left space-y-2 mb-6 flex-1">
@@ -778,7 +778,7 @@ export default function Home() {
                   role: "Formatrice, Consultante",
                   image: "/images/profile01.png",
                   quote:
-                    "Skillup Dz nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
+                    "Skillup Link nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
                 },
                 {
                   name: "Bouabbache Sihem",
@@ -792,7 +792,7 @@ export default function Home() {
                   role: "Formatrice indépendante",
                   image: "/images/profile03.png",
                   quote:
-                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à Skillup Dz.",
+                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">
@@ -899,7 +899,7 @@ export default function Home() {
                 <Mail className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Email</h3>
                 <p className="text-center text-gray-500">
-                  Skillupdz213@gmail.com
+                  Skilluplink213@gmail.com
                 </p>
                 <p className="text-center text-gray-500">
                   Réponse sous 24h ouvrées
@@ -909,9 +909,9 @@ export default function Home() {
                 <MapPin className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Adresse</h3>
                 <p className="text-center text-gray-500">
-                  123 Avenue de la Formation
+                  123 Avenue de la Skillup Link
                 </p>
-                <p className="text-center text-gray-500">75000 Paris, France</p>
+                <p className="text-center text-gray-500">cheraga alger</p>
               </Card>
             </div>
           </div>
