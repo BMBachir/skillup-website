@@ -553,7 +553,7 @@ export default function Home() {
                       </div>
                       <div className="rounded-lg overflow-hidden shadow-lg h-[500px]">
                         <Image
-                          src="/images/servicesImg02.png"
+                          src="/images/servicesImg02.jpg"
                           alt="Entreprises"
                           className="w-full h-full object-cover"
                           width={400}
