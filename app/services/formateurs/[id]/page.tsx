@@ -29,14 +29,9 @@ const formateurs = [
       },
     ],
   },
-  // Add more formateurs if needed
 ];
 
-interface PageProps {
-  params: { id: string };
-}
-
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { id: string } }) {
   const formateur = formateurs.find((f) => f.id === Number(params.id));
 
   if (!formateur) {
@@ -51,7 +46,6 @@ export default async function Page({ params }: PageProps) {
     }
     return <span>{stars.join("")}</span>;
   }
-
   return (
     <div className="max-w-2xl mx-auto space-y-6 mt-[150px]">
       {/* Formateur Profile */}
