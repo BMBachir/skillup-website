@@ -144,7 +144,7 @@ export function MainNav() {
             </Link>
 
             <Button
-              className="bg-[#db9404]  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
+              className="bg-[#840103]  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500"
               onClick={handleLogout}
             >
               Déconnexion
@@ -165,7 +165,7 @@ export function MainNav() {
               </Button>
             </Link>
             <Link href="/auth/register">
-              <Button className="bg-[#db9404] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
+              <Button className="bg-[#840103] cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 duration-500">
                 Inscription
               </Button>
             </Link>
@@ -234,7 +234,7 @@ export function MainNav() {
             href="/auth/register"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <Button className="bg-[#db9404] w-full p-4">Inscription</Button>
+            <Button className="bg-[#840103] w-full p-4">Inscription</Button>
           </Link>
         </div>
       )}

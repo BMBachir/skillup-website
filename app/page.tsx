@@ -151,7 +151,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <Badge className="mb-2 bg-[#db9404]">
+                <Badge className="mb-2 bg-[#850104]">
                   Plateforme Innovante
                 </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
@@ -238,7 +238,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404]">Nos Services</Badge>
+                <Badge className="mb-2 bg-[#850104]">Nos Services</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Une solution pour chaque besoin
                 </h2>
@@ -359,7 +359,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404]">Comment ça marche</Badge>
+                <Badge className="mb-2 bg-[#850104]">Comment ça marche</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Une plateforme adaptée à chaque profil
                 </h2>
@@ -656,7 +656,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404]">
+                <Badge className="mb-2 bg-[#850104]">
                   Formations populaires
                 </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -701,7 +701,7 @@ export default function Home() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <Badge className="mb-2 bg-[#db9404]">
+                    <Badge className="mb-2 bg-[#850104]">
                       {formation.category}
                     </Badge>
                     <h3 className="text-xl font-bold mb-2">
@@ -761,7 +761,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404]">Témoignages</Badge>
+                <Badge className="mb-2 bg-[#850104]">Témoignages</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Ils nous font confiance
                 </h2>
@@ -823,7 +823,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404] text-white px-3 py-1 rounded-full text-sm">
+                <Badge className="mb-2 bg-[#850104] text-white px-3 py-1 rounded-full text-sm">
                   Questions fréquentes
                 </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -858,7 +858,7 @@ export default function Home() {
                 Vous ne trouvez pas la réponse à votre question ?
               </p>
               <Link href="/contact">
-                <Button className="text-white bg-[#db9404] hover:bg-[#c88302] transition-colors">
+                <Button className="text-white bg-[#850104] hover:bg-[#c88302] transition-colors">
                   Contactez-nous
                 </Button>
               </Link>
@@ -876,7 +876,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
-                <Badge className="mb-2 bg-[#db9404]">Contact</Badge>
+                <Badge className="mb-2 bg-[#850104]">Contact</Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Contactez-nous
                 </h2>
