@@ -14,17 +14,9 @@ import {
   Building,
   GraduationCap,
   UserRound,
-  Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
@@ -37,6 +29,7 @@ import {
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
+import PricingPage from "./pricing/page";
 
 const faqs = [
   {
@@ -188,7 +181,7 @@ export default function Home() {
               <div className="mx-auto w-full max-w-[500px] lg:max-w-none">
                 <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-lg">
                   <Image
-                    src="/images/heroimage.png"
+                    src="/images/heroimage01.jpg"
                     alt="Plateforme de formation"
                     className="object-cover w-full h-full"
                     width={500}
@@ -475,7 +468,7 @@ export default function Home() {
                       </div>
                       <div className="rounded-lg overflow-hidden shadow-lg h-[500px] ">
                         <Image
-                          src="/images/servicesImg01.png"
+                          src="/images/servicesImg01.jpg"
                           alt="Entreprises"
                           className="w-full h-full object-cover"
                           width={400}
@@ -643,7 +636,7 @@ export default function Home() {
                       </div>
                       <div className="rounded-lg overflow-hidden shadow-lg h-[500px]">
                         <Image
-                          src="/images/servicesImg03.png"
+                          src="/images/servicesImg03.jpg"
                           alt="Entreprises"
                           className="w-full h-full object-cover"
                           width={400}
@@ -742,7 +735,7 @@ export default function Home() {
                         {formation.rating.toFixed(1)}
                       </span>
                     </div>
-                    <Link href={`/services/formations/${index + 1}`}>
+                    <Link href={`/services/formations`}>
                       <Button variant="outline" className="w-full">
                         Voir plus
                       </Button>
@@ -781,15 +774,15 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  name: "Marie Dupont",
-                  role: "DRH, Entreprise Tech",
+                  name: "Amellal zehira",
+                  role: "Formatrice, Consultante",
                   image: "/images/profile01.png",
                   quote:
-                    "SkillUP nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
+                    "Skillup Dz nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
                 },
                 {
-                  name: "Jean Martin",
-                  role: "Directeur, École de Formation",
+                  name: "Bouabbache Sihem",
+                  role: "Directrice entreprise",
                   image: "/images/profile02.png",
                   quote:
                     "Grâce à la plateforme, nous avons pu augmenter notre visibilité et le nombre d'inscriptions à nos formations a considérablement augmenté.",
@@ -799,14 +792,14 @@ export default function Home() {
                   role: "Formatrice indépendante",
                   image: "/images/profile03.png",
                   quote:
-                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à SkillUP.",
+                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à Skillup Dz.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">
                   <div className="flex flex-col items-center">
                     <div className="w-15 h-15 rounded-full  overflow-hidden mb-4">
                       <Image
-                        src={testimonial.image || "/placeholder.svg"}
+                        src="/images/profile.webp"
                         alt={testimonial.name}
                         className="object-cover w-full h-full"
                         height={35}
@@ -874,76 +867,8 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <div className="container py-10">
-          <div className="space-y-4 text-center mb-10">
-            <h1 className="text-3xl font-bold">Nos offres</h1>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              Choisissez l'offre qui correspond le mieux à vos besoins et
-              accédez à l'ensemble de nos services premium
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {packs.map((pack) => (
-              <Card
-                key={pack.id}
-                className={`flex flex-col ${
-                  pack.popular ? "border-[#001282] shadow-lg" : ""
-                }`}
-              >
-                {pack.popular && (
-                  <div className="bg-[#001282] text-white text-center py-1 text-sm font-medium">
-                    Recommandé
-                  </div>
-                )}
-                <CardHeader>
-                  <CardTitle>{pack.name}</CardTitle>
-                  <CardDescription>{pack.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold">{pack.price} DZ</span>
-                    <span className="text-gray-500 ml-1">/mois</span>
-                  </div>
-                  <ul className="space-y-3">
-                    {pack.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    onClick={() => handlePackSelection(pack.id)}
-                    className={`w-full cursor-pointer transition-colors duration-500 ${
-                      pack.popular ? "bg-[#001282] hover:bg-blue-800" : ""
-                    }`}
-                    variant={pack.popular ? "default" : "outline"}
-                  >
-                    {pack.cta}
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              Vous avez des besoins spécifiques ?
-            </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto mb-6">
-              Nous proposons également des offres personnalisées pour les
-              organisations avec des besoins particuliers. Contactez notre
-              équipe commerciale pour discuter de vos exigences.
-            </p>
-            <Link href="/contact">
-              <Button variant="outline" size="lg">
-                Nous contacter
-              </Button>
-            </Link>
-          </div>
+        <div>
+          <PricingPage />
         </div>
 
         {/* Contact Section */}
@@ -965,16 +890,16 @@ export default function Home() {
               <Card className="flex flex-col items-center space-y-4 p-6 shadow-md hover:shadow-lg transition-shadow">
                 <Phone className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Téléphone</h3>
-                <p className="text-center text-gray-500">+33 1 23 45 67 89</p>
+                <p className="text-center text-gray-500">+213 666 43 65 60</p>
                 <p className="text-center text-gray-500">
-                  Du lundi au vendredi, 9h-18h
+                  Du samedi au jeudi, 8:30h-17h
                 </p>
               </Card>
               <Card className="flex flex-col items-center space-y-4 p-6 shadow-md hover:shadow-lg transition-shadow">
                 <Mail className="h-10 w-10 text-[#001282]" />
                 <h3 className="text-xl font-bold">Email</h3>
                 <p className="text-center text-gray-500">
-                  contact@formation-platform.fr
+                  Skillupdz213@gmail.com
                 </p>
                 <p className="text-center text-gray-500">
                   Réponse sous 24h ouvrées

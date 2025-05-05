@@ -71,7 +71,7 @@ const formationsData = [
       "Reconversion professionnelle",
       "Designers web souhaitant élargir leurs compétences",
     ],
-    image: "/placeholder.svg?height=400&width=800&text=Formation+Web",
+    image: "/images/formationImg01.png",
     curriculum: [
       {
         title: "Module 1: Fondamentaux du développement web",
@@ -226,7 +226,7 @@ const formationsData = [
       "Analystes de données",
       "Professionnels en reconversion",
     ],
-    image: "/placeholder.svg?height=400&width=800&text=Formation+Data",
+    image: "/images/formationImg02.png",
     curriculum: [
       {
         title: "Module 1: Fondamentaux de la Data Science",
@@ -376,7 +376,7 @@ const formationsData = [
       "Entrepreneurs et indépendants",
       "Débutants en reconversion professionnelle",
     ],
-    image: "/placeholder.svg?height=400&width=800&text=Formation+Marketing",
+    image: "/images/formationImg03.png",
     curriculum: [
       {
         title: "Module 1: Fondamentaux du marketing digital",
@@ -527,7 +527,7 @@ const formationsData = [
       "Développeurs souhaitant se spécialiser en sécurité",
       "Professionnels IT en reconversion",
     ],
-    image: "/placeholder.svg?height=400&width=800&text=Formation+Cybersécurité",
+    image: "/images/formationImg04.jpg",
     curriculum: [
       {
         title: "Module 1: Fondamentaux de la cybersécurité",
@@ -1042,7 +1042,7 @@ export default function FormationDetailPage() {
             {/* Carte d'inscription */}
             <Card className="border-blue-200">
               <CardHeader className="pb-3">
-                <CardTitle className="text-2xl">{formation.price}</CardTitle>
+                <CardTitle className="text-2xl">{formation.level}</CardTitle>
                 <CardDescription>{formation.priceDetails}</CardDescription>
               </CardHeader>
               <CardContent className="pb-3 space-y-4">

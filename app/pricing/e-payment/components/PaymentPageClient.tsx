@@ -42,7 +42,7 @@ const plans = {
     id: "basic",
     name: "Essentiel",
     description: "Pour les petites entreprises et les indépendants",
-    price: "1999",
+    price: "4000",
     features: [
       "Accès à 10 formations complètes",
       "Consultation de 5 profils de formateurs",

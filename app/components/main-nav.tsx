@@ -109,16 +109,7 @@ export function MainNav() {
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
                       >
-                        Formations sur mesure
-                      </NavigationMenuLink>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services/sur-mesure" legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={navigationMenuTriggerStyle()}
-                      >
-                        Projet
+                        Projet a réaliser / Formations sur mesure
                       </NavigationMenuLink>
                     </Link>
                   </li>

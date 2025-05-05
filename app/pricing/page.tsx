@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Building, GraduationCap, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,11 +10,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 
 export default function PricingPage() {
-  const packs = [
+  const router = useRouter();
+
+  const entreprisePacks = [
     {
       id: "Freemium",
       name: "Freemium",
@@ -31,9 +34,9 @@ export default function PricingPage() {
     },
     {
       id: "Premium",
-      name: " Premium",
+      name: "Premium",
       description: "Pour les entreprises en croissance",
-      price: "1499",
+      price: "3000",
       features: [
         "Accès à 50 formations complètes",
         "Consultation de 20 profils de formateurs",
@@ -45,7 +48,67 @@ export default function PricingPage() {
       popular: true,
     },
   ];
-  const router = useRouter();
+
+  const ecolePacks = [
+    {
+      id: "Freemium",
+      name: "Freemium",
+      description: "Pour les écoles publiques",
+      price: "0",
+      features: [
+        "Accès à 10 formations",
+        "Suivi des progrès des étudiants",
+        "1 demande de formation personnalisée",
+        "Support par email",
+      ],
+      cta: "Choisir Standard",
+      popular: false,
+    },
+    {
+      id: "Premium",
+      name: "Premium",
+      description: "Pour les établissements privés",
+      price: "10000",
+      features: [
+        "Accès illimité aux formations",
+        "Gestion complète des classes",
+        "3 demandes de formation personnalisée",
+        "Support prioritaire",
+      ],
+      cta: "Choisir Pro",
+      popular: true,
+    },
+  ];
+
+  const formateurPacks = [
+    {
+      id: "Freemium",
+      name: "Freemium",
+      description: "Pour les nouveaux formateurs",
+      price: "0",
+      features: [
+        "Création de profil formateur",
+        "Accès aux offres de missions",
+        "Support par email",
+      ],
+      cta: "Choisir Base",
+      popular: false,
+    },
+    {
+      id: "Premium",
+      name: "Premium",
+      description: "Pour les formateurs confirmés",
+      price: "4000",
+      features: [
+        "Mise en avant sur la plateforme",
+        "Accès prioritaire aux missions",
+        "Support dédié",
+      ],
+      cta: "Choisir Plus",
+      popular: true,
+    },
+  ];
+
   const handlePackSelection = (selectedPackId: string) => {
     const userData = localStorage.getItem("registeredUser");
 
@@ -54,7 +117,7 @@ export default function PricingPage() {
       parsedData.payment = selectedPackId;
       localStorage.setItem("registeredUser", JSON.stringify(parsedData));
 
-      if (selectedPackId === "Premium") {
+      if (selectedPackId.includes("Premium")) {
         router.push("/pricing/e-payment");
       } else {
         router.push("/");
@@ -63,6 +126,56 @@ export default function PricingPage() {
       toast.error("Inscrivez-vous pour choisir une offre");
     }
   };
+
+  const renderPacks = (packs: any[]) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+      {packs.map((pack) => (
+        <Card
+          key={pack.id}
+          className={`flex flex-col ${
+            pack.popular ? "border-[#001282] shadow-lg" : ""
+          }`}
+        >
+          {pack.popular && (
+            <div className="bg-[#001282] text-white text-center py-1 text-sm font-medium">
+              Recommandé
+            </div>
+          )}
+          <CardHeader>
+            <CardTitle>{pack.name}</CardTitle>
+            <CardDescription>{pack.description}</CardDescription>
+          </CardHeader>
+          <CardContent className="flex-1">
+            <div className="mb-6">
+              <span className="text-4xl font-bold">{pack.price} DZ</span>
+              <span className="text-gray-500 ml-1">/mois</span>
+            </div>
+            <ul className="space-y-3">
+              {pack.features.map((feature: string, i: number) => (
+                <li key={i} className="flex items-start gap-2">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+          <CardFooter>
+            <Button
+              onClick={() => handlePackSelection(pack.id)}
+              className={`w-full cursor-pointer transition-colors duration-500 ${
+                pack.popular
+                  ? "bg-[#001282] hover:bg-blue-900"
+                  : " hover:bg-gray-300"
+              }`}
+              variant={pack.popular ? "default" : "outline"}
+            >
+              {pack.cta}
+            </Button>
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
+  );
 
   return (
     <div className="container py-10 mt-[100px]">
@@ -75,53 +188,30 @@ export default function PricingPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {packs.map((pack) => (
-          <Card
-            key={pack.id}
-            className={`flex flex-col ${
-              pack.popular ? "border-[#001282] shadow-lg" : ""
-            }`}
-          >
-            {pack.popular && (
-              <div className="bg-[#001282] text-white text-center py-1 text-sm font-medium">
-                Recommandé
-              </div>
-            )}
-            <CardHeader>
-              <CardTitle>{pack.name}</CardTitle>
-              <CardDescription>{pack.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <div className="mb-6">
-                <span className="text-4xl font-bold">{pack.price} DZ</span>
-                <span className="text-gray-500 ml-1">/mois</span>
-              </div>
-              <ul className="space-y-3">
-                {pack.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-            <CardFooter>
-              <Button
-                onClick={() => handlePackSelection(pack.id)}
-                className={`w-full cursor-pointer transition-colors duration-500 ${
-                  pack.popular
-                    ? "bg-[#001282] hover:bg-blue-900"
-                    : " hover:bg-gray-300"
-                }`}
-                variant={pack.popular ? "default" : "outline"}
-              >
-                {pack.cta}
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+      <Tabs defaultValue="entreprise" className="w-full max-w-[1200px] mx-auto">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="entreprise" className="flex items-center gap-2">
+            <Building className="h-4 w-4" />
+            <span>Entreprises</span>
+          </TabsTrigger>
+          <TabsTrigger value="ecole" className="flex items-center gap-2">
+            <GraduationCap className="h-4 w-4" />
+            <span>Écoles</span>
+          </TabsTrigger>
+          <TabsTrigger value="formateur" className="flex items-center gap-2">
+            <UserRound className="h-4 w-4" />
+            <span>Formateurs</span>
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="entreprise">
+          {renderPacks(entreprisePacks)}
+        </TabsContent>
+        <TabsContent value="ecole">{renderPacks(ecolePacks)}</TabsContent>
+        <TabsContent value="formateur">
+          {renderPacks(formateurPacks)}
+        </TabsContent>
+      </Tabs>
 
       <div className="mt-16 text-center">
         <h2 className="text-2xl font-bold mb-4">
