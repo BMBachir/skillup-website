@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import {
@@ -642,21 +642,21 @@ const formationsData = [
   },
 ];
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+export const dynamic = "force-dynamic";
 
-export default function FormationDetailPage({ params }: PageProps) {
+export default function FormationDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const formation = formationsData.find((f) => f.id === params.id);
 
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   if (!formation) {
     notFound();
   }
 
-  // Fonction pour afficher les étoiles de notation
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   const renderStars = (rating: number) => {
     const stars = [];
     const fullStars = Math.floor(rating);
