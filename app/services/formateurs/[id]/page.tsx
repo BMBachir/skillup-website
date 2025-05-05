@@ -32,14 +32,12 @@ const formateurs = [
   // Add more formateurs if needed
 ];
 
-interface Props {
-  params: {
-    id: string;
-  };
+interface PageProps {
+  params: { id: string };
 }
 
-export default function Page({ params }: Props) {
-  const formateur = formateurs.find((f) => f.id === parseInt(params.id, 10));
+export default async function Page({ params }: PageProps) {
+  const formateur = formateurs.find((f) => f.id === Number(params.id));
 
   if (!formateur) {
     notFound();
