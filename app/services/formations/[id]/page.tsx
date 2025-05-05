@@ -642,7 +642,11 @@ const formationsData = [
   },
 ];
 
-export default function FormationDetailPage() {
+interface PageProps {
+  params: { id: string };
+}
+
+export default function FormationDetailPage({ params }: PageProps) {
   const { id } = useParams();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
