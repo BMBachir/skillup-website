@@ -193,7 +193,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats Section */}
+        {/* Stats Section 
         <section className="w-full py-12 md:py-16 lg:py-20 border-y bg-white">
           <div className="container px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -231,7 +231,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
 
         {/* Services Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
