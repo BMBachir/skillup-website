@@ -465,7 +465,7 @@ export default function PaymentPage() {
                       ) : (
                         <>
                           <Lock className="mr-2 h-4 w-4" />
-                          Payer {calculatePrice()} dzd
+                          Payer {calculatePrice()} dzd{" "}
                           {billingCycle === "annual" ? "par an" : "par mois"}
                         </>
                       )}
