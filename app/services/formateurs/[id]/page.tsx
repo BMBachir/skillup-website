@@ -1,6 +1,6 @@
-import Link from "next/link";
+"use client";
 import { notFound } from "next/navigation";
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 
 const formateurs = [
   {
@@ -114,7 +114,11 @@ const formateurs = [
 ];
 
 export const dynamic = "force-dynamic";
-
+type RegisteredUser = {
+  payment: string;
+  userType?: string;
+  name?: string;
+};
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const productId = parseInt(id);
@@ -132,14 +136,35 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
     }
     return <span>{stars.join("")}</span>;
   }
+  const [storedUser, setStoredUser] = useState<RegisteredUser | null>(null);
 
+  useEffect(() => {
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      setStoredUser(JSON.parse(userData));
+    }
+  }, []);
   return (
     <div className="max-w-2xl mx-auto space-y-6 mt-[150px]">
       {/* Formateur Profile */}
       <div className="border rounded-lg p-6 shadow">
-        <h2 className="text-2xl font-bold">{formateur.name}</h2>
+        <h2
+          className={`text-gray-900 mb-2 text-2xl ${
+            !storedUser || storedUser?.payment?.toLowerCase() === "freemium"
+              ? "blur-sm"
+              : ""
+          } transition-all cursor-pointer`}
+        >
+          {formateur.name}
+        </h2>
         <p className="text-gray-600">{formateur.title}</p>
-        <div className="mt-2 text-sm text-gray-500">
+        <div
+          className={`text-gray-900 mb-2 ${
+            !storedUser || storedUser?.payment?.toLowerCase() === "freemium"
+              ? "blur-sm"
+              : ""
+          } transition-all cursor-pointer`}
+        >
           📍 {formateur.location} &middot; {formateur.experience} d'expérience
         </div>
         <div className="mt-2 flex items-center text-sm text-gray-500">
@@ -154,7 +179,15 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             ))}
           </ul>
         </div>
-        <p className="mt-4 text-gray-700">{formateur.description}</p>
+        <p
+          className={`text-gray-900 mb-2 ${
+            !storedUser || storedUser?.payment?.toLowerCase() === "freemium"
+              ? "blur-sm"
+              : ""
+          } transition-all cursor-pointer`}
+        >
+          {formateur.description}
+        </p>
       </div>
 
       {/* Reviews */}

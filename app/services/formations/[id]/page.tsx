@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import {
@@ -34,7 +34,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
+import { ToastContainer, toast } from "react-toastify";
 // Données simulées pour les formations
 const formationsData = [
   {
@@ -682,8 +682,34 @@ export default function FormationDetailPage() {
     return stars;
   };
 
+  type RegisteredUser = {
+    payment: string;
+    userType?: string;
+    name?: string;
+  };
+
+  const [storedUser, setStoredUser] = useState<RegisteredUser | null>(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("registeredUser");
+    if (userData) {
+      setStoredUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleSubmit = () => {
+    if (!storedUser || storedUser.payment !== "Premium") {
+      toast.error(
+        "Veuillez souscrire à l'offre premium pour S'inscrire à cette formation."
+      );
+      return;
+    }
+
+    toast.success("Votre inscription a été envoyée avec succès. ✅");
+  };
   return (
     <div className="container py-10">
+      <ToastContainer position="bottom-right" />
       <div className="mb-6">
         <Link
           href="/services/formations"
@@ -908,7 +934,14 @@ export default function FormationDetailPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {formation.instructors.map((instructor) => (
                     <Card key={instructor.id}>
-                      <CardContent className="p-6">
+                      <CardContent
+                        className={`text-gray-500 p-6 ${
+                          !storedUser ||
+                          storedUser?.payment?.toLowerCase() === "freemium"
+                            ? "blur-sm"
+                            : ""
+                        } transition-all cursor-pointer`}
+                      >
                         <div className="flex items-start gap-4">
                           <img
                             src={instructor.image || "/placeholder.svg"}
@@ -1046,7 +1079,14 @@ export default function FormationDetailPage() {
                 <CardDescription>{formation.priceDetails}</CardDescription>
               </CardHeader>
               <CardContent className="pb-3 space-y-4">
-                <div className="space-y-2">
+                <div
+                  className={` space-y-2 ${
+                    !storedUser ||
+                    storedUser?.payment?.toLowerCase() === "freemium"
+                      ? "blur-sm"
+                      : ""
+                  } transition-all cursor-pointer`}
+                >
                   <div className="flex items-center gap-2">
                     <Calendar className="h-5 w-5 text-blue-600" />
                     <div>
@@ -1078,7 +1118,14 @@ export default function FormationDetailPage() {
 
                 <Separator />
 
-                <div className="flex items-center gap-3">
+                <div
+                  className={` flex items-center gap-3 text-gray-500 mb-2 ${
+                    !storedUser ||
+                    storedUser?.payment?.toLowerCase() === "freemium"
+                      ? "blur-sm"
+                      : ""
+                  } transition-all cursor-pointer`}
+                >
                   <img
                     src={formation.schoolLogo || "/placeholder.svg"}
                     alt={formation.school}
@@ -1091,7 +1138,9 @@ export default function FormationDetailPage() {
                 </div>
               </CardContent>
               <CardFooter className="flex flex-col gap-2">
-                <Button className="w-full">S'inscrire à cette formation</Button>
+                <Button onClick={handleSubmit} className="w-full">
+                  S'inscrire à cette formation
+                </Button>
                 <Button
                   variant="outline"
                   className="w-full"
