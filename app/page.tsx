@@ -276,7 +276,10 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Contenus pédagogiques de qualité</span>
+                    <span>
+                      Accés facile aux nouvelles tendances et évolutions du
+                      marché
+                    </span>
                   </li>
                 </ul>
                 <Link
@@ -329,7 +332,8 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-500 mb-4">
                   Créez des programmes adaptés à vos besoins spécifiques et
-                  confiez-nous vos projets de formation.
+                  parfaiment alignées avec les objectifs profzssionnels et les
+                  évolutions du marché.
                 </p>
                 <ul className="text-left space-y-2 mb-6 flex-1">
                   <li className="flex items-start gap-2">

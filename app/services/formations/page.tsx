@@ -71,7 +71,7 @@ export default function FormationsPage() {
     }
   }, []);
   return (
-    <div className="container py-10">
+    <div className="container py-10 mt-[4rem]">
       <div className="space-y-4 mb-8">
         <h1 className="text-3xl font-bold">Catalogue de Formations</h1>
         <p className="text-gray-500">
