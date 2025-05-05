@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { use } from "react";
 
 const formateurs = [
   {
@@ -33,8 +34,10 @@ const formateurs = [
 
 export const dynamic = "force-dynamic";
 
-export default function Page({ params }: { params: { id: string } }) {
-  const formateur = formateurs.find((f) => f.id === parseInt(params.id, 10));
+export default function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const productId = parseInt(id);
+  const formateur = formateurs.find((f) => f.id === productId);
 
   if (!formateur) {
     notFound();
@@ -48,6 +51,7 @@ export default function Page({ params }: { params: { id: string } }) {
     }
     return <span>{stars.join("")}</span>;
   }
+
   return (
     <div className="max-w-2xl mx-auto space-y-6 mt-[150px]">
       {/* Formateur Profile */}
