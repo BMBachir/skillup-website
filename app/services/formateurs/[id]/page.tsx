@@ -31,8 +31,10 @@ const formateurs = [
   },
 ];
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const formateur = formateurs.find((f) => f.id === Number(params.id));
+export const dynamic = "force-dynamic";
+
+export default function Page({ params }: { params: { id: string } }) {
+  const formateur = formateurs.find((f) => f.id === parseInt(params.id, 10));
 
   if (!formateur) {
     notFound();
