@@ -243,12 +243,6 @@ export default function SchoolDashboard() {
                                 {session.time}
                               </p>
                             </div>
-                            <div className="flex items-center gap-1 mt-1">
-                              <Users className="h-3 w-3 text-gray-400" />
-                              <p className="text-xs text-gray-500">
-                                {session.students} étudiants
-                              </p>
-                            </div>
                           </div>
                         </div>
                       ))}
