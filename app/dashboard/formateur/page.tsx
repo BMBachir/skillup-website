@@ -45,7 +45,7 @@ export default function TrainerDashboard() {
 
   return (
     <div className="">
-      {storedUser?.logged ? (
+      {storedUser?.logged && storedUser.payment === "Premium" ? (
         <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
           <Sidebar userType="trainer" />
           <div className="flex flex-col">
@@ -380,17 +380,32 @@ export default function TrainerDashboard() {
         <div className="flex flex-col items-center justify-center min-h-screen p-4">
           <div className="bg-white shadow-lg rounded-xl p-8 max-w-md text-center">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
-              Vous devez vous connecter pour accéder au dashboard
+              {storedUser?.payment === "Freemium"
+                ? "Accès Premium Requis"
+                : "Connexion Requise"}
             </h1>
+
             <p className="text-gray-500 mb-6">
-              Connectez-vous avec votre compte pour continuer.
+              {storedUser?.payment === "Freemium"
+                ? "Vous devez vous inscrire à l'offre Premium pour accéder au dashboard."
+                : "Connectez-vous avec votre compte pour continuer."}
             </p>
-            <Link
-              href="/auth/register"
-              className="inline-block bg-[#001282] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#001282]/80 transition-all duration-300"
-            >
-              Se connecter
-            </Link>
+
+            {storedUser?.payment === "Freemium" ? (
+              <Link
+                href="/pricing"
+                className="inline-block bg-[#001282] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#001282]/80 transition-all duration-300"
+              >
+                Passer Premium
+              </Link>
+            ) : (
+              <Link
+                href="/auth/register"
+                className="inline-block bg-[#001282] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#001282]/80 transition-all duration-300"
+              >
+                Se connecter
+              </Link>
+            )}
           </div>
         </div>
       )}
