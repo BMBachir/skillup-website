@@ -45,9 +45,12 @@ export default function RegisterPage() {
     e.preventDefault();
 
     const savedUser = { ...formData };
-
     localStorage.setItem("registeredUser", JSON.stringify(savedUser));
+
     router.push("/pricing");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   useEffect(() => {

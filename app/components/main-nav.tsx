@@ -19,12 +19,16 @@ export function MainNav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [routerPath, setRouterPath] = useState<string>("/");
   const [userExists, setUserExists] = useState<boolean>(false);
-
+  const [storedUser, setStoredUser] = useState<{
+    name: string;
+    userType: string;
+  } | null>(null);
   useEffect(() => {
-    const storedUser = localStorage.getItem("registeredUser");
+    const savedUser = localStorage.getItem("registeredUser");
 
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
+    if (savedUser) {
+      const parsedUser = JSON.parse(savedUser);
+      setStoredUser(parsedUser); // ✅ store the user in state
       setUserExists(true);
 
       switch (parsedUser.userType) {
@@ -41,7 +45,7 @@ export function MainNav() {
           setRouterPath("/");
       }
     }
-  }, [userExists]);
+  }, []);
   const handleLogout = () => {
     localStorage.removeItem("registeredUser");
     setUserExists(false);
@@ -149,9 +153,10 @@ export function MainNav() {
             >
               Déconnexion
             </Button>
-            <Avatar className="cursor-pointer h-10 w-10 ml-4">
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+            <Avatar className="cursor-pointer border-2 border-dashed border-[#840103] h-10 w-10 ml-4">
+              <AvatarFallback className="text-[#840103] font-bold text-sm">
+                {storedUser?.name?.substring(0, 2).toUpperCase() || "??"}
+              </AvatarFallback>
             </Avatar>
           </div>
         ) : (
