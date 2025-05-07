@@ -87,7 +87,7 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
                 <Badge className="mb-2 bg-[#850104]">
-                  Plateforme Innovante
+                  Plateforme d&apos;intermédiation
                 </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
                   Votre pont vers l'excellence professionnelle
