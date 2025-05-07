@@ -75,7 +75,7 @@ export default function PricingPage() {
     {
       id: "Freemium",
       name: "Freemium",
-      description: "Pour les formateurs et colnsultants",
+      description: "Pour les formateurs et consultants",
       price: "0",
       features: [
         "Création de profil formateur",
@@ -88,7 +88,7 @@ export default function PricingPage() {
     {
       id: "Premium",
       name: "Premium",
-      description: "Pour les formateurs et colnsultants",
+      description: "Pour les formateurs et consultants",
       price: "40000",
       features: [
         "Mise en avant sur la plateforme",
