@@ -58,7 +58,7 @@ export default function PricingPage() {
       id: "Premium",
       name: "Premium",
       description: "Pour les ecoles de formation ",
-      price: "10000",
+      price: "100000",
       features: [
         "Publication illimitée des formations.",
         "Consultation illimitée des profils de formations / consultants.",

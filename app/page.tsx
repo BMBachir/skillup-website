@@ -710,7 +710,7 @@ export default function Home() {
               {[
                 {
                   name: "Amellal zehira",
-                  role: "consultante independente",
+                  role: "consultante indépendente",
                   image: "/images/profile01.png",
                   quote:
                     "En tant que consultant indépendant, j’ai développer mon activité et élargir ma clientèle grâce à Sillup Link.",
