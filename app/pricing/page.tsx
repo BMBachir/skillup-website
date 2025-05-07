@@ -33,7 +33,7 @@ export default function PricingPage() {
       description: "Pour les entreprises",
       price: "200000",
       features: [
-        "Accès ilimite aux formations disponibles",
+        "Accès illimité aux formations disponibles",
         "Consultation de profils de formateurs / consultants",
         "Accès illimité aux formations sur mesure",
         "Tableau de bord analytique",
@@ -60,11 +60,12 @@ export default function PricingPage() {
       description: "Pour les ecoles de formation ",
       price: "10000",
       features: [
-        "Publication ilimitée des formations.",
-        "Consulttation ilimité de profils des formations / consulttants.",
-        "Accés du formation personnalisée.",
-        "Mise en avant automatique des resulttats de recherche.",
+        "Publication illimitée des formations.",
+        "Consultation illimitée des profils de formations / consultants.",
+        "Accès à la formation personnalisée.",
+        "Mise en avant automatique dans les résultats de recherche.",
       ],
+
       cta: "Choisir l'offre Premium",
       popular: true,
     },

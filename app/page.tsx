@@ -710,24 +710,24 @@ export default function Home() {
               {[
                 {
                   name: "Amellal zehira",
-                  role: "Formatrice, Consultante",
+                  role: "consultante independente",
                   image: "/images/profile01.png",
                   quote:
-                    "En tant que consltant indépendant, j'ai pu déevlopper mon activité et élargir ma clientéle grace a Sillup Link.",
+                    "En tant que consultant indépendant, j’ai développer mon activité et élargir ma clientèle grâce à Sillup Link.",
                 },
                 {
                   name: "Bouabbache Sihem",
                   role: "Directrice d'ecole de formation",
                   image: "/images/profile02.png",
                   quote:
-                    "Grâce à la plateforme, nous avons pu augmenter notre visibilité et le nombre d'inscriptions à nos formations a considérablement augmenté.",
+                    " Grâce à la plateforme, nous avons pu accroître notre visibilité et le nombre d’inscriptions à nos formations a considérablement augmenté.",
                 },
                 {
                   name: "Mouhamed Nasri",
-                  role: "Formateur indépendante",
+                  role: "Formateur indépendant",
                   image: "/images/profile03.png",
                   quote:
-                    "En tant que formateur indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
+                    "En tant que formatrice indépendant, j’ai développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">
@@ -837,7 +837,7 @@ export default function Home() {
                   Skilluplink213@gmail.com
                 </p>
                 <p className="text-center text-gray-500">
-                  Réponse sous 24h ouvrées
+                  Support accessible 24h/24 et 7j/7
                 </p>
               </Card>
               <Card className="flex flex-col items-center space-y-4 p-6 shadow-md hover:shadow-lg transition-shadow">
