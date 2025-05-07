@@ -40,7 +40,7 @@ import Image from "next/image";
 const plans = {
   basic: {
     id: "basic",
-    name: "Essentiel",
+    name: "Premium",
     description: "Pour les petites entreprises et les indépendants",
     price: "4000",
     features: [
@@ -99,12 +99,20 @@ export default function PaymentPage() {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [billingCycle, setBillingCycle] = useState("monthly");
 
-  // Calculer le prix en fonction du cycle de facturation
+  const price = searchParams.get("price");
   const calculatePrice = () => {
-    const basePrice = Number.parseInt(selectedPlan.price);
-    return billingCycle === "annual"
-      ? (basePrice * 10).toString()
-      : basePrice.toString();
+    const basePrice = Number.parseInt(price || "0");
+
+    const formattedPrice = (amount: number) => {
+      return amount.toLocaleString("fr-FR");
+    };
+
+    if (billingCycle === "annual") {
+      return formattedPrice(basePrice);
+    } else {
+      const monthlyPrice = Math.round(basePrice / 12);
+      return formattedPrice(monthlyPrice);
+    }
   };
 
   const handlePayment = (e: React.FormEvent) => {
@@ -288,7 +296,9 @@ export default function PaymentPage() {
                         >
                           <div className="flex items-center gap-3">
                             <CreditCard className="h-5 w-5 text-blue-600" />
-                            <span className="font-medium">Carte bancaire</span>
+                            <span className="font-medium">
+                              Carte bancaire ou Edahabia
+                            </span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Image

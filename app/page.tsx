@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Quels sont les différents abonnements disponibles ?",
     answer:
-      "Nous proposons trois types d'abonnements : Essentiel, Professionnel et Entreprise. Chaque formule offre un niveau d'accès différent aux formations, profils de formateurs et fonctionnalités. Vous pouvez consulter notre page Tarifs pour plus de détails.",
+      "Nous proposons Trois pack : par utilisation, abonnment mensuel, premium. Chaque formule offre un niveau d'accès différent aux formations, profils de formateurs et fonctionnalités. Vous pouvez consulter notre page Tarifs pour plus de détails.",
   },
   {
     question: "Comment sont sélectionnées les formations sur la plateforme ?",
@@ -75,72 +75,7 @@ export default function Home() {
     }
   }, []);
 
-  const packs = [
-    {
-      id: "Freemium",
-      name: "Freemium",
-      description: "Pour les petites entreprises et les indépendants",
-      price: "0",
-      features: [
-        "Accès à site web complètes",
-        "Consultation de 5 profils de formateurs",
-        "1 demande de formation sur mesure",
-        "Support par email",
-      ],
-      cta: "Choisir l'offre Essentiel",
-      popular: false,
-    },
-    {
-      id: "Premium",
-      name: " Premium",
-      description: "Pour les entreprises en croissance",
-      price: "1499",
-      features: [
-        "Accès à 50 formations complètes",
-        "Consultation de 20 profils de formateurs",
-        "3 demandes de formation sur mesure",
-        "Support prioritaire",
-        "Tableau de bord analytique",
-      ],
-      cta: "Choisir l'offre Professionnel",
-      popular: true,
-    },
-    {
-      id: "abbonmet",
-      name: " abjbonmet",
-      description: "Pour les entreprises en croissance",
-      price: "1499",
-      features: [
-        "Accès à 50 formations complètes",
-        "Consultation de 20 profils de formateurs",
-        "3 demandes de formation sur mesure",
-        "Support prioritaire",
-        "Tableau de bord analytique",
-      ],
-      cta: "Choisir l'offre Professionnel",
-      popular: false,
-    },
-  ];
-
   const router = useRouter();
-
-  const handlePackSelection = (selectedPackId: string) => {
-    const userData = localStorage.getItem("registeredUser");
-
-    if (userData) {
-      const parsedData = JSON.parse(userData);
-      parsedData.payment = selectedPackId;
-      localStorage.setItem("registeredUser", JSON.stringify(parsedData));
-
-      if (selectedPackId === "Premium") {
-        router.push("/pricing/e-payment");
-      } else {
-        router.push("/");
-      }
-    } else {
-      toast.error("Inscrivez-vous pour choisir une offre");
-    }
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -325,13 +260,13 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-500 mb-4">
                   Créez des programmes adaptés à vos besoins spécifiques et
-                  parfaiment alignées avec les objectifs professionnels et les
+                  parfaitement alignées avec les objectifs professionnels et les
                   évolutions du marché.
                 </p>
                 <ul className="text-left space-y-2 mb-6 flex-1">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Programmes personnalisés</span>
+                    <span>Programmes personnalisés</span>Sophie Lefebvre
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -778,21 +713,21 @@ export default function Home() {
                   role: "Formatrice, Consultante",
                   image: "/images/profile01.png",
                   quote:
-                    "Skillup Link nous a permis de trouver rapidement des formations de qualité pour nos équipes. Le processus est simple et efficace.",
+                    "En tant que consltant indépendant, j'ai pu déevlopper mon activité et élargir ma clientéle grace a Sillup Link.",
                 },
                 {
                   name: "Bouabbache Sihem",
-                  role: "Directrice entreprise",
+                  role: "Directrice d'ecole de formation",
                   image: "/images/profile02.png",
                   quote:
                     "Grâce à la plateforme, nous avons pu augmenter notre visibilité et le nombre d'inscriptions à nos formations a considérablement augmenté.",
                 },
                 {
-                  name: "Sophie Lefebvre",
-                  role: "Formatrice indépendante",
+                  name: "Mouhamed Nasri",
+                  role: "Formateur indépendante",
                   image: "/images/profile03.png",
                   quote:
-                    "En tant que formatrice indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
+                    "En tant que formateur indépendante, j'ai pu développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">

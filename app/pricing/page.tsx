@@ -23,15 +23,15 @@ export default function PricingPage() {
       name: "Freemium",
       description: "Pour les petites entreprises et les indépendants",
       price: "0",
-      features: ["Accès au site web complètes", "support par email"],
-      cta: "Choisir l'offre Essentiel",
+      features: ["Accès complet à la plateforme ", "support par email"],
+      cta: "Choisir l'offre Freemium",
       popular: false,
     },
     {
       id: "Premium",
       name: "Premium",
       description: "Pour les entreprises en croissance",
-      price: "200 000",
+      price: "200000",
       features: [
         "Accès ilimite aux formations disponibles",
         "Consultation de profils de formateurs / consultants",
@@ -39,7 +39,7 @@ export default function PricingPage() {
         "Tableau de bord analytique",
         "Mise en avant automatique dans les resultats de recherche",
       ],
-      cta: "Choisir l'offre Professionnel",
+      cta: "Choisir l'offre Premium",
       popular: true,
     },
   ];
@@ -51,7 +51,7 @@ export default function PricingPage() {
       description: "Pour les écoles publiques",
       price: "0",
       features: ["Accès au site web complètes", "support par email"],
-      cta: "Choisir Standard",
+      cta: "Choisir l'offre Freemium",
       popular: false,
     },
     {
@@ -60,12 +60,12 @@ export default function PricingPage() {
       description: "Pour les établissements privés",
       price: "10000",
       features: [
-        "Accès illimité aux formations",
-        "Gestion complète des classes",
-        "3 demandes de formation personnalisée",
-        "Support prioritaire",
+        "Publication ilimitée des formations.",
+        "Consulttation ilimité de profils des formations / consulttants.",
+        "Accés du formation personnalisée.",
+        "Mise en avant automatique des resulttats de recherche.",
       ],
-      cta: "Choisir Pro",
+      cta: "Choisir l'offre Premium",
       popular: true,
     },
   ];
@@ -81,25 +81,28 @@ export default function PricingPage() {
         "Accès aux offres de missions",
         "Support par email",
       ],
-      cta: "Choisir Base",
+      cta: "Choisir l'offre Freemium",
       popular: false,
     },
     {
       id: "Premium",
       name: "Premium",
       description: "Pour les formateurs confirmés",
-      price: "4000",
+      price: "40000",
       features: [
         "Mise en avant sur la plateforme",
         "Accès prioritaire aux missions",
         "Support dédié",
       ],
-      cta: "Choisir Plus",
+      cta: "Choisir l'offre Premium",
       popular: true,
     },
   ];
 
-  const handlePackSelection = (selectedPackId: string) => {
+  const handlePackSelection = (
+    selectedPackId: string,
+    selectedPackPrice: string
+  ) => {
     const userData = localStorage.getItem("registeredUser");
 
     if (userData) {
@@ -108,7 +111,7 @@ export default function PricingPage() {
       localStorage.setItem("registeredUser", JSON.stringify(parsedData));
 
       if (selectedPackId.includes("Premium")) {
-        router.push("/pricing/e-payment");
+        router.push(`/pricing/e-payment?price=${selectedPackPrice}`);
       } else {
         router.push("/");
       }
@@ -138,7 +141,7 @@ export default function PricingPage() {
           <CardContent className="flex-1">
             <div className="mb-6">
               <span className="text-4xl font-bold">{pack.price} DZ</span>
-              <span className="text-gray-500 ml-1">/mois</span>
+              <span className="text-gray-500 ml-1">/Par an</span>
             </div>
             <ul className="space-y-3">
               {pack.features.map((feature: string, i: number) => (
@@ -151,11 +154,11 @@ export default function PricingPage() {
           </CardContent>
           <CardFooter>
             <Button
-              onClick={() => handlePackSelection(pack.id)}
+              onClick={() => handlePackSelection(pack.id, pack.price)}
               className={`w-full cursor-pointer transition-colors duration-500 ${
                 pack.popular
                   ? "bg-[#001282] hover:bg-blue-900"
-                  : " hover:bg-gray-300"
+                  : "hover:bg-gray-300"
               }`}
               variant={pack.popular ? "default" : "outline"}
             >
