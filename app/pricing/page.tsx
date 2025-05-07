@@ -61,7 +61,7 @@ export default function PricingPage() {
       price: "100000",
       features: [
         "Publication illimitée des formations.",
-        "Consultation illimitée des profils de formations / consultants.",
+        "Consultation illimitée des profils de formateurs / consultants.",
         "Accès à la formation personnalisée.",
         "Mise en avant automatique dans les résultats de recherche.",
       ],
