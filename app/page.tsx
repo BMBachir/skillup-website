@@ -713,7 +713,7 @@ export default function Home() {
                   role: "consultante indépendente",
                   image: "/images/profile01.png",
                   quote:
-                    "En tant que consultant indépendant, j’ai développer mon activité et élargir ma clientèle grâce à Sillup Link.",
+                    "En tant que consultant indépendante, j’ai développer mon activité et élargir ma clientèle grâce à Sillup Link.",
                 },
                 {
                   name: "Bouabbache Sihem",
