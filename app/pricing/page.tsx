@@ -21,7 +21,7 @@ export default function PricingPage() {
     {
       id: "Freemium",
       name: "Freemium",
-      description: "Pour les petites entreprises et les indépendants",
+      description: "Pour les entreprises",
       price: "0",
       features: ["Accès complet à la plateforme ", "support par email"],
       cta: "Choisir l'offre Freemium",
@@ -30,7 +30,7 @@ export default function PricingPage() {
     {
       id: "Premium",
       name: "Premium",
-      description: "Pour les entreprises en croissance",
+      description: "Pour les entreprises",
       price: "200000",
       features: [
         "Accès ilimite aux formations disponibles",
@@ -48,7 +48,7 @@ export default function PricingPage() {
     {
       id: "Freemium",
       name: "Freemium",
-      description: "Pour les écoles publiques",
+      description: "Pour les ecoles de formation ",
       price: "0",
       features: ["Accès au site web complètes", "support par email"],
       cta: "Choisir l'offre Freemium",
@@ -57,7 +57,7 @@ export default function PricingPage() {
     {
       id: "Premium",
       name: "Premium",
-      description: "Pour les établissements privés",
+      description: "Pour les ecoles de formation ",
       price: "10000",
       features: [
         "Publication ilimitée des formations.",
@@ -74,7 +74,7 @@ export default function PricingPage() {
     {
       id: "Freemium",
       name: "Freemium",
-      description: "Pour les nouveaux formateurs",
+      description: "Pour les formateurs et colnsultants",
       price: "0",
       features: [
         "Création de profil formateur",
@@ -87,7 +87,7 @@ export default function PricingPage() {
     {
       id: "Premium",
       name: "Premium",
-      description: "Pour les formateurs confirmés",
+      description: "Pour les formateurs et colnsultants",
       price: "40000",
       features: [
         "Mise en avant sur la plateforme",

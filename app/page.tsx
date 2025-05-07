@@ -82,7 +82,7 @@ export default function Home() {
       <ToastContainer position="bottom-right" draggable theme="colored" />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 mt-[70px] ">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
@@ -169,7 +169,7 @@ export default function Home() {
         </section>*/}
 
         {/* Services Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12  ">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
               <div className="space-y-2">
@@ -266,7 +266,7 @@ export default function Home() {
                 <ul className="text-left space-y-2 mb-6 flex-1">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Programmes personnalisés</span>Sophie Lefebvre
+                    <span>Programmes personnalisés</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
