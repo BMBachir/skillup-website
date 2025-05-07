@@ -727,7 +727,7 @@ export default function Home() {
                   role: "Formateur indépendant",
                   image: "/images/profile03.png",
                   quote:
-                    "En tant que formatrice indépendant, j’ai développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
+                    "En tant que formateur indépendant, j’ai développer mon activité et trouver de nouveaux clients grâce à Skillup Link.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="text-center p-6">
