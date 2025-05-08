@@ -262,7 +262,7 @@ export default function TrainerDashboard() {
                           },
                           {
                             title: "Formation TypeScript",
-                            company: "École Numérique Lyon",
+                            company: "École Numérique Alger",
                             duration: "24 heures",
                             date: "Septembre 2025",
                             budget: "2 400 dzd",

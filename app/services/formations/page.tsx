@@ -39,7 +39,7 @@ export default function FormationsPage() {
     {
       id: 3,
       title: "Marketing Digital",
-      school: "Business School Lyon",
+      school: "Business School Alger",
       rating: 4.2,
       duration: "3 mois",
       category: "Marketing",

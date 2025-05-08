@@ -333,7 +333,7 @@ const formationsData = [
       {
         id: "6",
         title: "Business Intelligence",
-        school: "Business School Lyon",
+        school: "Business School Alger",
         image: "/placeholder.svg?height=150&width=300&text=BI",
         rating: 4.6,
       },
@@ -342,7 +342,7 @@ const formationsData = [
   {
     id: "3",
     title: "Marketing Digital",
-    school: "Business School Lyon",
+    school: "Business School Alger",
     schoolLogo: "/placeholder.svg?height=60&width=60&text=BSL",
     rating: 4.6,
     reviewCount: 87,
@@ -469,7 +469,7 @@ const formationsData = [
       {
         id: "7",
         title: "Community Management",
-        school: "Business School Lyon",
+        school: "Business School Alger",
         image: "/placeholder.svg?height=150&width=300&text=CM",
         rating: 4.7,
       },

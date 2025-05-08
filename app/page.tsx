@@ -621,7 +621,7 @@ export default function Home() {
                 },
                 {
                   title: "Marketing Digital",
-                  school: "Business School Lyon",
+                  school: "Business School Alger",
                   rating: 4.7,
                   category: "Marketing",
                   image: "/images/formationImg03.png",

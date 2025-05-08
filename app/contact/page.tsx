@@ -75,10 +75,10 @@ export default function ContactPage() {
       hours: "Lun-Ven: 9h-18h",
     },
     {
-      city: "Lyon",
-      address: "45 Rue de l'Apprentissage, 69002 Lyon",
+      city: "Alger",
+      address: "45 Rue de l'Apprentissage, 69002 Alger",
       phone: "+33 4 56 78 90 12",
-      email: "lyon@formation-connect.fr",
+      email: "alger@formation-connect.fr",
       hours: "Lun-Ven: 9h-18h",
     },
     {

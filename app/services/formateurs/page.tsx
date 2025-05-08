@@ -31,7 +31,7 @@ export default function FormateursPage() {
       id: 2,
       name: "Thomas Dubois",
       title: "Consultant en Data Science",
-      location: "Lyon",
+      location: "Alger",
       experience: "12 ans",
       rating: 4.9,
       specialties: ["Python", "Machine Learning", "Big Data"],
