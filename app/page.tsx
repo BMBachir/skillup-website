@@ -607,7 +607,7 @@ export default function Home() {
               {[
                 {
                   title: "Développement Web Full Stack",
-                  school: "École Numérique Paris",
+                  school: "École Numérique Alger",
                   rating: 4.9,
                   category: "Développement",
                   image: "/images/formationImg01.png",

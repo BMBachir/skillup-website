@@ -68,10 +68,10 @@ export default function ContactPage() {
 
   const offices = [
     {
-      city: "Paris",
-      address: "123 Avenue de la Formation, 75008 Paris",
+      city: "Alger",
+      address: "123 Avenue de la Formation, 75008 Alger",
       phone: "+33 1 23 45 67 89",
-      email: "paris@formation-connect.fr",
+      email: "alger@formation-connect.fr",
       hours: "Lun-Ven: 9h-18h",
     },
     {
@@ -478,7 +478,7 @@ export default function ContactPage() {
                   Nous trouver
                 </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Visitez notre siège social à Paris
+                  Visitez notre siège social à Alger
                 </p>
               </div>
             </div>

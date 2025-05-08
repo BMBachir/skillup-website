@@ -116,7 +116,7 @@ export default function TrainerDashboard() {
                         {[
                           {
                             name: "Formation Développement Web",
-                            client: "École Numérique Paris",
+                            client: "École Numérique Alger",
                             progress: 75,
                             hours: "24/32",
                             endDate: "15 mai 2025",
@@ -182,7 +182,7 @@ export default function TrainerDashboard() {
                       {[
                         {
                           title: "Développement Web",
-                          client: "École Numérique Paris",
+                          client: "École Numérique Alger",
                           date: "Aujourd'hui",
                           time: "14:00 - 18:00",
                         },
@@ -347,7 +347,7 @@ export default function TrainerDashboard() {
                         <ActivityItem
                           icon={MessageSquare}
                           title="Nouveau message"
-                          description="École Numérique Paris vous a envoyé un message"
+                          description="École Numérique Alger vous a envoyé un message"
                           time="Il y a 4j"
                         />
                         <ActivityItem

@@ -40,7 +40,7 @@ const formationsData = [
   {
     id: "1",
     title: "Développement Web Full Stack",
-    school: "École Numérique Paris",
+    school: "École Numérique Alger",
     schoolLogo: "/placeholder.svg?height=60&width=60&text=ENP",
     rating: 4.8,
     reviewCount: 124,
@@ -176,7 +176,7 @@ const formationsData = [
       {
         id: "3",
         title: "UX/UI Design",
-        school: "Design School Paris",
+        school: "Design School Alger",
         image: "/placeholder.svg?height=150&width=300&text=UX/UI",
         rating: 4.9,
       },
@@ -319,7 +319,7 @@ const formationsData = [
       {
         id: "1",
         title: "Développement Web Full Stack",
-        school: "École Numérique Paris",
+        school: "École Numérique Alger",
         image: "/placeholder.svg?height=150&width=300&text=Web",
         rating: 4.8,
       },
@@ -634,7 +634,7 @@ const formationsData = [
       {
         id: "1",
         title: "Développement Web Full Stack",
-        school: "École Numérique Paris",
+        school: "École Numérique Alger",
         image: "/placeholder.svg?height=150&width=300&text=Web",
         rating: 4.8,
       },

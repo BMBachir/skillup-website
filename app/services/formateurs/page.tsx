@@ -20,7 +20,7 @@ export default function FormateursPage() {
       id: 1,
       name: "Sophie Martin",
       title: "Experte en Développement Web",
-      location: "Paris",
+      location: "Alger",
       experience: "8 ans",
       rating: 4.7,
       specialties: ["JavaScript", "React", "Node.js"],

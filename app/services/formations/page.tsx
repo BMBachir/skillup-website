@@ -19,7 +19,7 @@ export default function FormationsPage() {
     {
       id: 1,
       title: "Développement Web Full Stack",
-      school: "École Numérique Paris",
+      school: "École Numérique Alger",
       rating: 4.5,
       duration: "6 mois",
       category: "Développement",

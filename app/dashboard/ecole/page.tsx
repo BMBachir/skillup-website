@@ -53,7 +53,7 @@ export default function SchoolDashboard() {
           {" "}
           <Sidebar userType="school" />
           <div className="flex flex-col">
-            <Header userType="school" userName="École Numérique Paris" />
+            <Header userType="school" userName="École Numérique Alger" />
             <main className="flex-1 overflow-y-auto bg-gray-50 ml-[50px] mt-[50px]">
               <div className="container py-6">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
