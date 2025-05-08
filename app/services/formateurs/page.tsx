@@ -18,7 +18,7 @@ export default function FormateursPage() {
   const formateurs = [
     {
       id: 1,
-      name: "Sophie Martin",
+      name: "Amellal Zehira",
       title: "Experte en Développement Web",
       location: "Alger",
       experience: "8 ans",
@@ -29,9 +29,9 @@ export default function FormateursPage() {
     },
     {
       id: 2,
-      name: "Thomas Dubois",
+      name: "Naceri Mouhamed",
       title: "Consultant en Data Science",
-      location: "Alger",
+      location: "Oran",
       experience: "12 ans",
       rating: 4.9,
       specialties: ["Python", "Machine Learning", "Big Data"],
@@ -40,9 +40,9 @@ export default function FormateursPage() {
     },
     {
       id: 3,
-      name: "Camille Leroy",
+      name: "Kheira Bensalem",
       title: "Formatrice Marketing Digital",
-      location: "Bordeaux",
+      location: "Constantine",
       experience: "6 ans",
       rating: 4.5,
       specialties: ["SEO", "Réseaux sociaux", "Content Marketing"],
@@ -51,9 +51,9 @@ export default function FormateursPage() {
     },
     {
       id: 4,
-      name: "Alexandre Petit",
+      name: "Yacine Mansouri",
       title: "Expert en Cybersécurité",
-      location: "Lille",
+      location: "Blida",
       experience: "10 ans",
       rating: 4.8,
       specialties: ["Sécurité réseau", "Ethical Hacking", "RGPD"],
@@ -61,6 +61,7 @@ export default function FormateursPage() {
         "Consultant et formateur en sécurité informatique avec une expertise reconnue dans la protection des systèmes d'information.",
     },
   ];
+
   type RegisteredUser = {
     payment: string;
     userType?: string;

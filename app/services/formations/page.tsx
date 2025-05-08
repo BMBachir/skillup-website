@@ -19,27 +19,27 @@ export default function FormationsPage() {
     {
       id: 1,
       title: "Développement Web Full Stack",
-      school: "École Numérique Alger",
+      school: "Institut Numérique Alger",
       rating: 4.5,
       duration: "6 mois",
       category: "Développement",
       description:
-        "Formation complète aux technologies web modernes: HTML, CSS, JavaScript, React, Node.js et bases de données.",
+        "Formation complète aux technologies web modernes : HTML, CSS, JavaScript, React, Node.js et bases de données.",
     },
     {
       id: 2,
       title: "Data Science & Intelligence Artificielle",
-      school: "DataTech Academy",
+      school: "Académie DataTech Oran",
       rating: 4.8,
       duration: "8 mois",
       category: "Data",
       description:
-        "Maîtrisez l'analyse de données, le machine learning et les techniques d'IA avancées pour devenir Data Scientist.",
+        "Maîtrisez l’analyse de données, le machine learning et les techniques d’IA avancées pour devenir Data Scientist.",
     },
     {
       id: 3,
       title: "Marketing Digital",
-      school: "Business School Alger",
+      school: "Ecole de Commerce Constantine",
       rating: 4.2,
       duration: "3 mois",
       category: "Marketing",
@@ -49,14 +49,15 @@ export default function FormationsPage() {
     {
       id: 4,
       title: "Cybersécurité",
-      school: "Institut de Sécurité Informatique",
+      school: "Centre Algérien de Sécurité Informatique",
       rating: 4.7,
       duration: "5 mois",
       category: "Sécurité",
       description:
-        "Formation aux techniques de protection des systèmes d'information et gestion des risques informatiques.",
+        "Formation aux techniques de protection des systèmes d’information et gestion des risques informatiques.",
     },
   ];
+
   type RegisteredUser = {
     payment: string;
     userType?: string;
