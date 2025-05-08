@@ -5,7 +5,7 @@ import { MainNav } from "./components/main-nav";
 import ChatBot from "./components/ChatBot";
 
 export const metadata = {
-  title: "Skillup Dz - Plateforme de mise en relation",
+  title: "Skillup Link - Plateforme de mise en relation",
   description:
     "Plateforme innovante de mise en relation entre entreprises, écoles de formation, formateurs et consultants",
 };
