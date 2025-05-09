@@ -21,7 +21,7 @@ export default function ChatBot() {
 
       {/* Chat Window */}
       {isChatOpen && (
-        <div className="fixed bottom-20 right-6 z-50 bg-white border mb-4 shadow-lg rounded-lg w-full lg:w-80 h-96 flex flex-col">
+        <div className="fixed bottom-20 lg:right-6 z-50 bg-white border mb-4 shadow-lg rounded-lg w-full lg:w-80 h-96 flex flex-col">
           <div className="p-4 border-b flex justify-between items-center bg-[#001282] text-white rounded-t-lg">
             <h4 className="text-lg font-semibold">Skillup Link Chat</h4>
             <button onClick={() => setIsChatOpen(false)}>

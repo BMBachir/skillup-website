@@ -16,6 +16,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -62,11 +63,17 @@ export default function LoginPage() {
   return (
     <div className="container py-10 mt-[100px] mb-[150px]">
       <div className="max-w-md mx-auto space-y-6">
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">Connexion</h1>
-          <p className="text-gray-500">Accédez à votre espace personnel</p>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 lg:mt-6">
+          <div className="space-y-2">
+            <Badge className="mb-2 bg-[#850104]">Se connecter</Badge>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Connexion
+            </h2>
+            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Accédez à votre espace personnel
+            </p>
+          </div>
         </div>
-
         <Card>
           <CardHeader>
             <CardTitle>Se connecter</CardTitle>

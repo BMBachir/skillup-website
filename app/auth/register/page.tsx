@@ -16,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Building2, GraduationCap, UserRound } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
 
 export default function RegisterPage() {
   const [userType, setUserType] = useState("entreprise");
@@ -63,14 +64,19 @@ export default function RegisterPage() {
   return (
     <div className="container py-10 mt-[100px]">
       <div className="max-w-md lg:max-w-3xl mx-auto space-y-6">
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">Créer un compte</h1>
-          <p className="text-gray-500">
-            Rejoignez notre plateforme de formation
-          </p>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 lg:mt-6">
+          <div className="space-y-2">
+            <Badge className="mb-2 bg-[#850104]">Se souscrire</Badge>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Créer un compte
+            </h2>
+            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Rejoignez notre plateforme de formation
+            </p>
+          </div>
         </div>
 
-        <Card className="w-3xl ">
+        <Card className="lg:w-3xl ">
           <CardHeader>
             <CardTitle>Je suis...</CardTitle>
             <CardDescription>

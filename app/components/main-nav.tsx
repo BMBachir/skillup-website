@@ -187,7 +187,7 @@ export function MainNav() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t px-4 py-6 space-y-4 flex flex-col">
+        <div className="md:hidden overflow-auto bg-white border-t px-4 py-6 space-y-4 flex flex-col">
           <Link
             href="/services"
             className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900"
@@ -214,7 +214,7 @@ export function MainNav() {
             href="/services/sur-mesure"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Formations sur mesure
+            Formations sur mesure / Formations sur mesure
           </Link>
           <Link
             className="rounded-xl hover:bg-amber-100 p-4 text-base font-medium text-gray-900 "

@@ -62,7 +62,7 @@ export default function SurMesurePage() {
           </h2>
           <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Créez des programmes de formation adaptés à vos besoins spécifiques
-            ou confiez-nous vos projets
+            ou confiez-nous vos projets.
           </p>
         </div>
       </div>
