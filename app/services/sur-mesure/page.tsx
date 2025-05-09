@@ -20,6 +20,7 @@ import {
 import { CheckCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { Badge } from "@/components/ui/badge";
 type RegisteredUser = {
   payment: string;
   userType?: string;
@@ -46,21 +47,24 @@ export default function SurMesurePage() {
       return;
     }
 
-    // ✅ Proceed with submission
     toast.success("Votre demande a été envoyée avec succès. ✅");
   };
 
   return (
     <div className="container py-10 mt-[4rem] ">
       <ToastContainer position="bottom-right" />
-      <div className="space-y-4 mb-8">
-        <h1 className="text-3xl font-bold">
-          Formations sur mesure & Projets a réaliser
-        </h1>
-        <p className="text-gray-500">
-          Créez des programmes de formation adaptés à vos besoins spécifiques ou
-          confiez-nous vos projets
-        </p>
+
+      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 mt-6">
+        <div className="space-y-2">
+          <Badge className="mb-2 bg-[#850104]">Nos Formations</Badge>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Formations sur mesure & Projets a réaliser
+          </h2>
+          <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Créez des programmes de formation adaptés à vos besoins spécifiques
+            ou confiez-nous vos projets
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

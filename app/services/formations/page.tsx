@@ -73,11 +73,16 @@ export default function FormationsPage() {
   }, []);
   return (
     <div className="container py-10 mt-[4rem]">
-      <div className="space-y-4 mb-8">
-        <h1 className="text-3xl font-bold">Catalogue de Formations</h1>
-        <p className="text-gray-500">
-          Découvrez notre sélection de formations professionnelles de qualité
-        </p>
+      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 mt-6">
+        <div className="space-y-2">
+          <Badge className="mb-2 bg-[#850104]">Nos Formations</Badge>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Catalogue de Formations
+          </h2>
+          <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Découvrez notre sélection de formations professionnelles de qualité
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -78,12 +78,19 @@ export default function FormateursPage() {
   }, []);
   return (
     <div className="container py-10 mt-[4rem] ">
-      <div className="space-y-4 mb-8">
-        <h1 className="text-3xl font-bold">Formateurs & Consultants</h1>
-        <p className="text-gray-500">
-          Découvrez nos experts qualifiés pour vos formations et missions de
-          conseil
-        </p>
+      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 mt-6">
+        <div className="space-y-2">
+          <Badge className="mb-2 bg-[#850104]">
+            Nos Formateur & Consultants
+          </Badge>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Formateurs & Consultants
+          </h2>
+          <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Découvrez nos experts qualifiés pour vos formations et missions de
+            conseil
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -93,9 +100,7 @@ export default function FormateursPage() {
               <div className="flex gap-4">
                 <div className="w-16 h-16 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden">
                   <img
-                    src={`/placeholder.svg?height=64&width=64&text=${formateur.name.charAt(
-                      0
-                    )}`}
+                    src={`/images/profile.webp`}
                     alt={formateur.name}
                     className="object-cover w-full h-full"
                   />
